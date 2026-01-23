@@ -307,7 +307,7 @@ async function sendAutoReplyEmail(data: {
 
                 <p style="font-size: 15px; color: #333; line-height: 1.6; margin-top: 20px;">
                   Best regards,<br />
-                  <strong>Sohanur Rahman Jahin</strong><br />
+                  <strong>Sohanur Rahman Jahin</strong><br/>
                   <span style="color: #666; font-size: 14px;">Full Stack Developer</span>
                 </p>
 
@@ -323,8 +323,8 @@ async function sendAutoReplyEmail(data: {
                 font-size: 12px;
                 color: #666;
               ">
-                This is an automated confirmation email.<br />
-                </td>br
+                This is an automated confirmation email.<br/>
+                </td><br
                 © ${new Date().getFullYear()} Sohanur Rahman Portfolio
             </tr>
 
