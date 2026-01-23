@@ -7,7 +7,7 @@ import { personalInfo } from "@/data/personal";
 import Image from "next/image";
 
 const quickLinks = [
-  { href: "/", label: "Home" },
+  // { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/experience", label: "Experience" },
@@ -35,13 +35,13 @@ export default function Footer() {
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main footer content */}
-        <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="py-10 md:py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand section */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 text-center md:text-left">
              {/* Logo */}
           <Link
             href="/"
-            className="relative z-50 flex items-center gap-2 group"
+            className="relative z-50 flex items-center gap-2 group justify-center md:justify-start"
           >
               <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-600/20">
                 <Image
@@ -52,15 +52,15 @@ export default function Footer() {
                   className="object-cover"
                 />
               </div>
-              <span className="hidden sm:block font-bold text-xl text-slate-900 dark:text-white">
+              <span className="sm:block font-bold text-xl text-slate-900 dark:text-white">
                 Sohan<span className="text-primary-500">.</span>
               </span>
           </Link>
-            <p className="text-slate-600 dark:text-slate-400 max-w-md mb-6">
+            <p className="text-slate-600 dark:text-slate-400 max-w-md mb-6 mx-auto md:mx-0">
               {personalInfo.shortBio}
             </p>
             {/* Social links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 justify-center md:justify-start">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
 
           {/* Quick links */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-4">
               Quick Links
             </h3>
@@ -98,7 +98,7 @@ export default function Footer() {
           </div>
 
           {/* Contact info */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-4">
               Get in Touch
             </h3>
@@ -109,6 +109,14 @@ export default function Footer() {
                   className="text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-colors duration-200"
                 >
                   {personalInfo.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${personalInfo.phone}`}
+                  className="text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-colors duration-200"
+                >
+                  {personalInfo.phone}
                 </a>
               </li>
               <li className="text-slate-600 dark:text-slate-400">
@@ -141,11 +149,11 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="py-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-600 dark:text-slate-400 text-sm text-center sm:text-left">
-            © {currentYear} {personalInfo.name}. All rights reserved.
+            © {currentYear} Sohanur Rahman Portfolio. All rights reserved.
           </p>
           <p className="text-slate-500 dark:text-slate-500 text-sm">
             Built with{" "}
-            <span className="text-red-500">♥</span> using Next.js & Tailwind CSS
+            <span className="text-red-500">♥</span> using Next.js
           </p>
         </div>
       </div>

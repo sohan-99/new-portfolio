@@ -63,10 +63,10 @@ When I'm not coding, you can find me exploring new technologies, contributing to
 };
 
 export const stats = [
-  { label: "Years Experience", value: "5+", suffix: "" },
-  { label: "Projects Completed", value: "50", suffix: "+" },
-  { label: "Happy Clients", value: "30", suffix: "+" },
-  { label: "GitHub Repos", value: "100", suffix: "+" },
+  { label: "Years Experience", value: "2+", suffix: "" },
+  { label: "Projects Completed", value: "17", suffix: "+" },
+  { label: "Happy Clients", value: "09", suffix: "+" },
+  { label: "GitHub Repos", value: "50", suffix: "+" },
 ];
 
 export const whatIDo = [

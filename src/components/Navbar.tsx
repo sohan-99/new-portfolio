@@ -71,7 +71,7 @@ export default function Navbar() {
                   className="object-cover"
                 />
               </div>
-              <span className="hidden sm:block font-bold text-xl text-slate-900 dark:text-white">
+              <span className="sm:block font-bold text-xl text-slate-900 dark:text-white">
                 Sohan<span className="text-primary-500">.</span>
               </span>
           </Link>

@@ -52,7 +52,7 @@ export default function AboutContent() {
                     className="absolute -bottom-4 -right-4 px-4 py-2 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700"
                   >
                     <span className="text-sm font-medium text-slate-900 dark:text-white">
-                      5+ Years Experience
+                      2+ Years Experience
                     </span>
                   </motion.div>
                 </div>

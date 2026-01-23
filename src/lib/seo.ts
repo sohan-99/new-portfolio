@@ -2,15 +2,15 @@ import { Metadata } from "next";
 
 const siteConfig = {
   name: "Sohanur Rahman Jahin",
-  title: "Sohanur Rahman Jahin",
+  title: "Sohanur Rahman Jahin | Full Stack MERN Developer",
   description:
     "Full Stack MERN Developer specializing in building scalable web applications with MongoDB, Express.js, React.js, Node.js, and Next.js. Expert in TypeScript, Tailwind CSS, and modern web development.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://sohanurrahman.dev",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://sohan.page",
   ogImage: "/og-image.jpg",
   links: {
-    github: "https://github.com/sohanurrahman",
-    linkedin: "https://linkedin.com/in/sohanurrahman",
-    email: "sohanurrahmans68@gmail.com",
+    github: "https://github.com/sohan-99",
+    linkedin: "https://linkedin.com/in/sohanur-tech",
+    email: "sohan75632@gmail.com",
   },
   keywords: [
     "Full Stack Developer",
@@ -27,6 +27,27 @@ const siteConfig = {
     "Backend Developer",
     "Sohanur Rahman",
     "Portfolio",
+    "Software Engineer",
+    "Tailwind CSS",
+    "Web Applications",
+    "Scalable Web Apps",
+    "sohan.page",
+    "Sohanur Rahman Jahin",
+    "sohan-99",
+    "sohanur-tech",
+    "Sohanur Rahman Portfolio",
+    "Md. Sohanur Rahman Jahin",
+    "Jahin Sohanur Rahman",
+    " Sohanur R. Jahin",
+    "Sohanur Rahman Developer",
+    "Sohanur Rahman Software Engineer",
+    "Sohanur Rahman Full Stack",
+    "Sohanur Rahman MERN",
+    "sohan",
+    "sohanur",
+    "jahin",
+    "Md. Jahin",
+    "Rahman",
   ],
 };
 
