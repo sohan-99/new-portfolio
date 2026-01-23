@@ -131,8 +131,7 @@ export default function Hero() {
               <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
-              href={personalInfo.resumeUrl}
-              download
+              href="https://drive.google.com/uc?export=download&id=1khpseFsmdCXk1m4tXRgJtW3uTV9fhAok"
               className="btn-outline group"
             >
               <FiDownload className="w-4 h-4" />
