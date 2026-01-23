@@ -324,7 +324,7 @@ async function sendAutoReplyEmail(data: {
                 color: #666;
               ">
                 This is an automated confirmation email.<br />
-                </td>b
+                </td>br
                 © ${new Date().getFullYear()} Sohanur Rahman Portfolio
             </tr>
 
