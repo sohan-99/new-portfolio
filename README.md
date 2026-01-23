@@ -167,7 +167,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-**Md. Sohanur Rahman Jahin**
+**Sohanur Rahman Jahin**
 
 - GitHub: [@sohanurrahman](https://github.com/sohanurrahman)
 - LinkedIn: [Sohanur Rahman](https://linkedin.com/in/sohanurrahman)

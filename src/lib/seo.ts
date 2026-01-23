@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 const siteConfig = {
-  name: "Md. Sohanur Rahman Jahin",
+  name: "Sohanur Rahman Jahin",
   title: "Sohanur Rahman | Full Stack MERN Developer",
   description:
     "Full Stack MERN Developer specializing in building scalable web applications with MongoDB, Express.js, React.js, Node.js, and Next.js. Expert in TypeScript, Tailwind CSS, and modern web development.",

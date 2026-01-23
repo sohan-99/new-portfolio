@@ -8,6 +8,7 @@ import {
   FiGithub,
   FiLinkedin,
   FiTwitter,
+  FiFacebook,
   FiClock,
 } from "react-icons/fi";
 import { personalInfo } from "@/data/personal";
@@ -47,19 +48,25 @@ const socialLinks = [
     icon: FiGithub,
     label: "GitHub",
     href: "https://github.com/sohan-99",
-    username: "@sohan-99",
+    username: "Sohanur Rahman",
   },
   {
     icon: FiLinkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/sohanur-tech",
-    username: "Md. Sohanur Rahman Jahin",
+    username: "Sohanur Rahman Jahin",
   },
   {
     icon: FiTwitter,
     label: "Twitter",
-    href: "https://twitter.com/sohanurrahman",
-    username: "@sohanurrahman",
+    href: "https://x.com/jahinSohan",
+    username: "Sohanur Rahman",
+  },
+  {
+    icon: FiFacebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/sohanu.99r",
+    username: "Sohanur Rahman",
   },
 ];
 
@@ -78,7 +85,7 @@ export default function ContactContent() {
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Contact Info */}
             <FadeInLeft className="lg:col-span-2">
-              <div className="space-y-8">
+              <div className="space-y-8 h-full flex flex-col">
                 {/* Contact details */}
                 <div>
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
@@ -163,18 +170,18 @@ export default function ContactContent() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="p-6 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 text-white"
+                  className="p-6 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 text-white mt-auto"
                 >
                   <h4 className="font-semibold text-lg mb-2">
                     Prefer a quick chat?
                   </h4>
                   <p className="text-white/80 text-sm mb-4">
-                    I typically respond to emails within 24 hours. For urgent
+                    I typically respond to emails within 2 hours. For urgent
                     matters, feel free to reach out on LinkedIn.
                   </p>
                   <div className="flex items-center gap-2 text-sm">
                     <FiClock className="w-4 h-4" />
-                    <span>Response time: ~24 hours</span>
+                    <span>Response time: ~2 hours</span>
                   </div>
                 </motion.div>
               </div>
@@ -182,7 +189,7 @@ export default function ContactContent() {
 
             {/* Contact Form */}
             <FadeInRight className="lg:col-span-3">
-              <div className="card p-6 md:p-8">
+              <div className="card p-6 md:p-8 h-full flex flex-col">
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
                   Send a Message
                 </h3>

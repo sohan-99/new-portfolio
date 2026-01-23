@@ -7,6 +7,7 @@ import { FiSend, FiCheck, FiAlertCircle, FiLoader } from "react-icons/fi";
 interface FormData {
   name: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 }
@@ -14,6 +15,7 @@ interface FormData {
 interface FormErrors {
   name?: string;
   email?: string;
+  phone?: string;
   subject?: string;
   message?: string;
 }
@@ -24,6 +26,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
@@ -93,7 +96,7 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
 
       // Reset success status after 5 seconds
       setTimeout(() => {
@@ -121,7 +124,7 @@ export default function ContactForm() {
           htmlFor="name"
           className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
         >
-          Your Name
+          Your Name <span className="text-sky-400">*</span>
         </label>
         <input
           type="text"
@@ -129,7 +132,7 @@ export default function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="John Doe"
+          placeholder="Sohanur Rahman Jahin"
           className={`input ${
             errors.name
               ? "border-red-500 focus:ring-red-500"
@@ -155,7 +158,7 @@ export default function ContactForm() {
           htmlFor="email"
           className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
         >
-          Your Email
+          Your Email <span className="text-sky-400">*</span>
         </label>
         <input
           type="email"
@@ -163,7 +166,7 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="john@example.com"
+          placeholder="sohan75632@gmail.com"
           className={`input ${
             errors.email
               ? "border-red-500 focus:ring-red-500"
@@ -183,13 +186,33 @@ export default function ContactForm() {
         )}
       </div>
 
+      {/* Phone field */}
+      <div>
+        <label
+          htmlFor="phone"
+          className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+        >
+          Phone Number <span className="text-slate-400 text-xs">(Optional)</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder="+880 1234-567890"
+          className="input"
+          disabled={status === "submitting"}
+        />
+      </div>
+
       {/* Subject field */}
       <div>
         <label
           htmlFor="subject"
           className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
         >
-          Subject
+          Subject <span className="text-sky-400">*</span>
         </label>
         <input
           type="text"
@@ -223,7 +246,7 @@ export default function ContactForm() {
           htmlFor="message"
           className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
         >
-          Your Message
+          Your Message <span className="text-sky-400">*</span>
         </label>
         <textarea
           id="message"
@@ -232,7 +255,7 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Tell me about your project..."
           rows={5}
-          className={`textarea ${
+          className={`textarea resize-y ${
             errors.message
               ? "border-red-500 focus:ring-red-500"
               : ""

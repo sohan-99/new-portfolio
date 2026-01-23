@@ -21,7 +21,7 @@ export interface PersonalInfo {
 }
 
 export const personalInfo: PersonalInfo = {
-  name: "Md. Sohanur Rahman Jahin",
+  name: "Sohanur Rahman Jahin",
   firstName: "Sohanur",
   lastName: "Rahman",
   role: "Full Stack MERN Developer",
