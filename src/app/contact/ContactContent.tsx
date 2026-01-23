@@ -200,29 +200,7 @@ export default function ContactContent() {
         </div>
       </section>
 
-      {/* Map Section (Optional - Placeholder) */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative h-64 md:h-96 rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700"
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <FiMapPin className="w-12 h-12 text-primary-500 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                  {personalInfo.location}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Available for remote work worldwide
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    
     </div>
   );
 }
