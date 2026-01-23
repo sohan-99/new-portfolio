@@ -5,10 +5,13 @@ import { experiences } from "@/data/experience";
 import Timeline from "@/components/Timeline";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { FadeInUp } from "@/components/ui/MotionWrapper";
+import { GrProjects } from "react-icons/gr";
+import { RiTeamFill } from "react-icons/ri";
+import { FaPaintBrush } from "react-icons/fa";
 
 export default function ExperienceContent() {
   // Calculate total years of experience
-  const startYear = 2019;
+  const startYear = 2024;
   const currentYear = new Date().getFullYear();
   const yearsOfExperience = currentYear - startYear;
 
@@ -45,7 +48,7 @@ export default function ExperienceContent() {
               </div>
               <div className="card p-6 text-center">
                 <div className="text-3xl font-bold text-primary-500 mb-1">
-                  50+
+                  15+
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-400">
                   Projects Completed
@@ -53,7 +56,7 @@ export default function ExperienceContent() {
               </div>
               <div className="card p-6 text-center">
                 <div className="text-3xl font-bold text-primary-500 mb-1">
-                  30+
+                  10+
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-400">
                   Happy Clients
@@ -99,40 +102,40 @@ export default function ExperienceContent() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Lead Development Teams",
+                title: "Full Stack Development",
                 description:
-                  "Successfully lead teams of up to 4 developers in building enterprise applications.",
-                icon: "👥",
+                  "Built end-to-end web applications using Next.js, Node.js, and modern databases.",
+                icon: "💻",
               },
               {
                 title: "Performance Optimization",
                 description:
-                  "Achieved 95+ Lighthouse scores and reduced page load times by 40%.",
+                  "Improved application performance and reduced load times through code optimization.",
                 icon: "⚡",
               },
               {
-                title: "Scalable Architecture",
+                title: "Modern Tech Stack",
                 description:
-                  "Built applications serving 100K+ users with robust, scalable architectures.",
-                icon: "🏗️",
+                  "Worked with TypeScript, Next.js, MongoDB, Prisma, Docker, and cloud services.",
+                icon: "🛠️",
               },
               {
-                title: "CI/CD Implementation",
+                title: "Client Projects",
                 description:
-                  "Reduced deployment time by 60% through automated pipelines.",
-                icon: "🚀",
+                  "Successfully delivered multiple client projects with positive feedback.",
+                icon: <GrProjects size={25}/>,
               },
               {
-                title: "Mentorship",
+                title: "Team Collaboration",
                 description:
-                  "Mentored junior developers, helping them grow to mid-level positions.",
-                icon: "🎓",
+                  "Collaborated with distributed teams and followed professional development workflows.",
+                icon: <RiTeamFill size={25}/>,
               },
               {
-                title: "Client Satisfaction",
+                title: "UI/UX Implementation",
                 description:
-                  "Maintained 95% client satisfaction rate across all projects.",
-                icon: "⭐",
+                  "Created responsive and pixel-perfect interfaces using React and Ant Design.",
+                icon: <FaPaintBrush size={25}/>,
               },
             ].map((achievement, index) => (
               <motion.div
