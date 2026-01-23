@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -61,18 +62,18 @@ export default function Navbar() {
             href="/"
             className="relative z-50 flex items-center gap-2 group"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2"
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
+              <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-600/20">
+                <Image
+                  src="/favicon.png"
+                  alt="Sohan"
+                  width={40}
+                  height={40}
+                  className="object-cover"
+                />
               </div>
               <span className="hidden sm:block font-bold text-xl text-slate-900 dark:text-white">
                 Sohan<span className="text-primary-500">.</span>
               </span>
-            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}

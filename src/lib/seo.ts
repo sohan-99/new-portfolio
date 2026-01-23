@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 const siteConfig = {
   name: "Sohanur Rahman Jahin",
-  title: "Sohanur Rahman | Full Stack MERN Developer",
+  title: "Sohanur Rahman Jahin",
   description:
     "Full Stack MERN Developer specializing in building scalable web applications with MongoDB, Express.js, React.js, Node.js, and Next.js. Expert in TypeScript, Tailwind CSS, and modern web development.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://sohanurrahman.dev",
@@ -94,6 +94,23 @@ export function generateSEO({
     alternates: {
       canonical: url,
     },
+    icons: {
+      icon: [
+        {
+          url: "/favicon.png",
+          sizes: "32x32",
+          type: "image/png",
+        },
+        {
+          url: "/favicon.png",
+          sizes: "16x16",
+          type: "image/png",
+        },
+      ],
+      shortcut: "/favicon.png",
+      apple: "/favicon.png",
+    },
+    manifest: "/manifest.json",
   };
 }
 

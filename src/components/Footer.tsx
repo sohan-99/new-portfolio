@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUp } from "react-icons/fi";
 import { personalInfo } from "@/data/personal";
+import Image from "next/image";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -37,14 +38,24 @@ export default function Footer() {
         <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand section */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
+             {/* Logo */}
+          <Link
+            href="/"
+            className="relative z-50 flex items-center gap-2 group"
+          >
+              <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-600/20">
+                <Image
+                  src="/favicon.png"
+                  alt="Sohan"
+                  width={40}
+                  height={40}
+                  className="object-cover"
+                />
               </div>
-              <span className="font-bold text-xl text-slate-900 dark:text-white">
+              <span className="hidden sm:block font-bold text-xl text-slate-900 dark:text-white">
                 Sohan<span className="text-primary-500">.</span>
               </span>
-            </Link>
+          </Link>
             <p className="text-slate-600 dark:text-slate-400 max-w-md mb-6">
               {personalInfo.shortBio}
             </p>

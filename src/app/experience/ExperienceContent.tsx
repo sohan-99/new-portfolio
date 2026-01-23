@@ -99,9 +99,9 @@ export default function ExperienceContent() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Led Development Teams",
+                title: "Lead Development Teams",
                 description:
-                  "Successfully led teams of up to 4 developers in building enterprise applications.",
+                  "Successfully lead teams of up to 4 developers in building enterprise applications.",
                 icon: "👥",
               },
               {
