@@ -17,7 +17,7 @@ const quickLinks = [
 const socialLinks = [
   { icon: FiGithub, href: "https://github.com/sohan-99", label: "GitHub" },
   { icon: FiLinkedin, href: "https://www.linkedin.com/in/sohanur-tech", label: "LinkedIn" },
-  { icon: FiTwitter, href: "https://twitter.com/sohan-99", label: "Twitter" },
+  { icon: FiTwitter, href: "https://twitter.com/jahinSohan", label: "Twitter" },
   { icon: FiMail, href: `mailto:${personalInfo.email}`, label: "Email" },
 ];
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FiDownload,
   FiCode,
@@ -39,11 +40,15 @@ export default function AboutContent() {
                   {/* Background decoration */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl transform rotate-6 opacity-20" />
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl transform -rotate-3 opacity-30" />
-                  {/* Avatar placeholder */}
-                  <div className="relative w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/50 dark:to-secondary-900/50 rounded-3xl flex items-center justify-center overflow-hidden">
-                    <span className="text-8xl font-bold gradient-text">
-                      {personalInfo.firstName.charAt(0)}
-                    </span>
+                  {/* Profile Image */}
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden">
+                    <Image
+                      src="/sohan.png"
+                      alt={personalInfo.name}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
                   </div>
                   {/* Floating badge */}
                   <motion.div
