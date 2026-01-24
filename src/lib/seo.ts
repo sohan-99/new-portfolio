@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 const siteConfig = {
   name: "Sohanur Rahman Jahin",
-  title: "Sohanur Rahman Jahin | Full Stack MERN Developer",
+  title: "Sohanur Rahman Jahin | Full Stack Developer",
   description:
-    "Full Stack MERN Developer specializing in building scalable web applications with MongoDB, Express.js, React.js, Node.js, and Next.js. Expert in TypeScript, Tailwind CSS, and modern web development.",
+    "Full Stack Developer specializing in building scalable web applications with MongoDB, Express.js, React.js, Node.js, and Next.js. Expert in TypeScript, Tailwind CSS, and modern web development.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://sohan.page",
   ogImage: "/og-image.jpg",
   links: {

@@ -24,7 +24,7 @@ export const personalInfo: PersonalInfo = {
   name: "Sohanur Rahman Jahin",
   firstName: "Sohanur",
   lastName: "Rahman",
-  role: "Full Stack MERN Developer",
+  role: "Full Stack Developer",
   tagline: "Building scalable web applications with modern technologies",
   email: "sohan75632@gmail.com",
   phone: "+880 1722562608",

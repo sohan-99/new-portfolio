@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 import {
   FiGithub,
   FiLinkedin,
@@ -35,6 +37,40 @@ const item = {
 };
 
 export default function Hero() {
+  const [typewriterText, setTypewriterText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const fullText = personalInfo.role;
+
+  useEffect(() => {
+    let currentIndex = typewriterText.length;
+    
+    const typingInterval = setInterval(() => {
+      if (!isDeleting) {
+        // Typing
+        if (currentIndex < fullText.length) {
+          setTypewriterText(fullText.slice(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          // Pause before deleting
+          setTimeout(() => setIsDeleting(true), 2000);
+          clearInterval(typingInterval);
+        }
+      } else {
+        // Deleting
+        if (currentIndex > 0) {
+          setTypewriterText(fullText.slice(0, currentIndex - 1));
+          currentIndex--;
+        } else {
+          // Pause before typing again
+          setTimeout(() => setIsDeleting(false), 500);
+          clearInterval(typingInterval);
+        }
+      }
+    }, isDeleting ? 50 : 100);
+
+    return () => clearInterval(typingInterval);
+  }, [fullText, isDeleting, typewriterText]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background effects */}
@@ -69,101 +105,138 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative container-custom py-32 md:py-40">
+      <div className="relative container-custom py-32 md:py-24">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-6xl mx-auto"
         >
-          {/* Greeting badge */}
-          <motion.div variants={item} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-              </span>
-              Available for work
-            </span>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Profile Image - Left Side */}
+            <motion.div variants={item} className="flex justify-center lg:justify-start">
+              <div className="relative">
+                <div className="relative w-64 h-64 md:w-80 md:h-80">
+                  {/* Background decoration */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl transform rotate-6 opacity-20" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl transform -rotate-3 opacity-30" />
+                  {/* Profile Image */}
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden">
+                    <Image
+                      src="/sohan.png"
+                      alt={personalInfo.name}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                </div>
+                {/* Floating badge */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute -bottom-3 -right-3 px-4 py-2 bg-slate-800 dark:bg-slate-900 rounded-xl shadow-lg border border-slate-700"
+                >
+                  <span className="text-sm font-medium text-white">
+                    2+ Years Experience
+                  </span>
+                </motion.div>
+              </div>
+            </motion.div>
 
-          {/* Name */}
-          <motion.h1
-            variants={item}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4"
-          >
-            <span className="text-slate-900 dark:text-white">Hi, I'm </span>
-            <span className="gradient-text animate-gradient-x">
-              {personalInfo.firstName}
-            </span>
-          </motion.h1>
+            {/* Content - Right Side */}
+            <div className="text-center lg:text-left">
+              {/* Greeting badge */}
+              <motion.div variants={item} className="mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                  </span>
+                  Available for work
+                </span>
+              </motion.div>
 
-          {/* Role */}
-          <motion.div variants={item} className="mb-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300">
-              {personalInfo.role}
-            </h2>
-          </motion.div>
-
-          {/* Tagline */}
-          <motion.p
-            variants={item}
-            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8"
-          >
-            {personalInfo.tagline}. I craft{" "}
-            <span className="text-primary-500 font-medium">performant</span>,{" "}
-            <span className="text-secondary-500 font-medium">scalable</span>, and{" "}
-            <span className="text-primary-500 font-medium">user-friendly</span> web
-            applications.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            variants={item}
-            className="flex flex-wrap items-center justify-center gap-4 mb-12"
-          >
-            <Link href="/contact" className="btn-primary group">
-              Hire Me
-              <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link href="/projects" className="btn-secondary group">
-              View Projects
-              <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <a
-              href="https://drive.google.com/uc?export=download&id=1khpseFsmdCXk1m4tXRgJtW3uTV9fhAok"
-              className="btn-outline group"
-            >
-              <FiDownload className="w-4 h-4" />
-              Download CV
-            </a>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            variants={item}
-            className="flex items-center justify-center gap-4 mb-16"
-          >
-            {socialLinks.map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary-500 hover:border-primary-500 shadow-sm transition-colors duration-200"
-                aria-label={social.label}
+              {/* Name */}
+              <motion.h1
+                variants={item}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4"
               >
-                <social.icon className="w-5 h-5" />
-              </motion.a>
-            ))}
-          </motion.div>
+                <span className="text-slate-900 dark:text-white">Hi, I'm </span>
+                <span className="gradient-text animate-gradient-x">
+                  {personalInfo.name}
+                </span>
+              </motion.h1>
+
+              {/* Role */}
+              <motion.div variants={item} className="mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300 min-h-[2.5rem] md:min-h-[3rem]">
+                  {typewriterText}
+                  <span className="animate-pulse">|</span>
+                </h2>
+              </motion.div>
+
+              {/* Tagline */}
+              <motion.p
+                variants={item}
+                className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8"
+              >
+                {personalInfo.tagline}. I craft{" "}
+                <span className="text-primary-500 font-medium">performant</span>,{" "}
+                <span className="text-secondary-500 font-medium">scalable</span>, and{" "}
+                <span className="text-primary-500 font-medium">user-friendly</span> web
+                applications.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                variants={item}
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8"
+              >
+                <Link href="/contact" className="btn-primary group">
+                  Hire Me
+                  <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link href="/projects" className="btn-secondary group">
+                  View Projects
+                  <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1khpseFsmdCXk1m4tXRgJtW3uTV9fhAok"
+                  className="btn-outline group"
+                >
+                  <FiDownload className="w-4 h-4" />
+                  Download CV
+                </a>
+              </motion.div>
+
+              {/* Social Links */}
+              <motion.div
+                variants={item}
+                className="flex items-center justify-center lg:justify-start gap-4"
+              >
+                {socialLinks.map((social) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary-500 hover:border-primary-500 shadow-sm transition-colors duration-200"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
+              </motion.div>
+            </div>
+          </div>
 
           {/* Stats */}
           <motion.div
             variants={item}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16"
           >
             {stats.map((stat, index) => (
               <motion.div
