@@ -73,7 +73,7 @@ const socialLinks = [
 export default function ContactContent() {
   return (
     <div className="pt-20 md:pt-24">
-      <section className="section">
+      <section className="py-12 bg-gradient-mesh">
         <div className="container-custom">
           <SectionHeader
             badge="Get in Touch"

@@ -30,7 +30,7 @@ export default function AboutContent() {
   return (
     <div className="pt-20 md:pt-24">
       {/* Hero Section */}
-      <section className="section bg-gradient-mesh">
+      <section className="py-12 bg-gradient-mesh">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image/Avatar */}
