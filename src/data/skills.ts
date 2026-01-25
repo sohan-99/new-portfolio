@@ -2,7 +2,7 @@ export interface Skill {
   name: string;
   iconName: string;
   level: number; // 1-100
-  category: "frontend" | "backend" | "database" | "tools" | "devops";
+  category: "frontend" | "backend" | "database" | "tools";
   color: string;
 }
 
@@ -78,12 +78,48 @@ export const skills: Skill[] = [
     category: "frontend",
     color: "#CC6699",
   },
+  
   {
-    name: "Vite",
-    iconName: "SiVite",
+    name: "Firebase",
+    iconName: "SiFirebase",
+    level: 85,
+    category: "frontend",
+    color: "#FFCA28",
+  },
+  {
+    name: "Bootstrap",
+    iconName: "SiBootstrap",
     level: 88,
     category: "frontend",
-    color: "#646CFF",
+    color: "#7952B3",
+  },
+  {
+    name: "Material UI",
+    iconName: "SiMui",
+    level: 82,
+    category: "frontend",
+    color: "#007FFF",
+  },
+  {
+    name: "SCSS",
+    iconName: "SiSass",
+    level: 85,
+    category: "frontend",
+    color: "#CC6699",
+  },
+  {
+    name: "Zustand",
+    iconName: "SiReact",
+    level: 80,
+    category: "frontend",
+    color: "#61DAFB",
+  },
+  {
+    name: "TanStack Query",
+    iconName: "SiReactquery",
+    level: 78,
+    category: "frontend",
+    color: "#FF4154",
   },
 
   // Backend
@@ -115,6 +151,34 @@ export const skills: Skill[] = [
     category: "backend",
     color: "#2D3748",
   },
+  {
+    name: "NestJS",
+    iconName: "SiNestjs",
+    level: 75,
+    category: "backend",
+    color: "#E0234E",
+  },
+  {
+    name: "JWT",
+    iconName: "SiJsonwebtokens",
+    level: 88,
+    category: "backend",
+    color: "#000000",
+  },
+  {
+    name: "REST API",
+    iconName: "SiPostman",
+    level: 92,
+    category: "backend",
+    color: "#FF6C37",
+  },
+  {
+    name: "OAuth",
+    iconName: "SiAuth0",
+    level: 80,
+    category: "backend",
+    color: "#EB5424",
+  },
 
   // Database
   {
@@ -138,6 +202,15 @@ export const skills: Skill[] = [
     category: "database",
     color: "#DC382D",
   },
+  
+  {
+    name: "MySQL",
+    iconName: "SiMysql",
+    level: 82,
+    category: "database",
+    color: "#4479A1",
+  },
+  
 
   // Tools
   {
@@ -197,43 +270,42 @@ export const skills: Skill[] = [
     color: "#17202C",
   },
 
-  // DevOps
+  // Database & DevOps
   {
     name: "Docker",
     iconName: "SiDocker",
     level: 72,
-    category: "devops",
+    category: "database",
     color: "#2496ED",
   },
   {
-    name: "Vercel",
-    iconName: "SiVercel",
-    level: 90,
-    category: "devops",
-    color: "#000000",
-  },
-  {
     name: "AWS",
-    iconName: "SiAmazonaws",
+    iconName: "FaAws",
     level: 65,
-    category: "devops",
+    category: "database",
     color: "#232F3E",
   },
   {
     name: "Linux",
     iconName: "SiLinux",
     level: 75,
-    category: "devops",
+    category: "database",
     color: "#FCC624",
+  },
+  {
+    name: "Nginx",
+    iconName: "SiNginx",
+    level: 70,
+    category: "database",
+    color: "#009639",
   },
 ];
 
 export const skillCategories = [
   { id: "frontend", label: "Frontend", description: "Building beautiful user interfaces" },
   { id: "backend", label: "Backend", description: "Server-side development & APIs" },
-  { id: "database", label: "Database", description: "Data storage & management" },
+  { id: "database", label: "Database & DevOps", description: "Data storage, deployment & infrastructure" },
   { id: "tools", label: "Tools", description: "Development & productivity tools" },
-  { id: "devops", label: "DevOps", description: "Deployment & infrastructure" },
 ] as const;
 
 export type SkillCategory = (typeof skillCategories)[number]["id"];

@@ -22,7 +22,6 @@ import {
   SiPrisma,
   SiSocketdotio,
   SiRedis,
-  SiAmazon,
   SiHtml5,
   SiCss3,
   SiSass,
@@ -33,7 +32,18 @@ import {
   SiLinux,
   SiNpm,
   SiYarn,
+  SiFirebase,
+  SiBootstrap,
+  SiMui,
+  SiReactquery,
+  SiNestjs,
+  SiJsonwebtokens,
+  SiSupabase,
+  SiMysql,
+  SiNginx,
+  SiAuth0,
 } from "react-icons/si";
+import { FaAws } from "react-icons/fa6";
 import { IconType } from "react-icons";
 
 // Icon mapping
@@ -57,7 +67,6 @@ const iconMap: Record<string, IconType> = {
   SiPrisma,
   SiSocketdotio,
   SiRedis,
-  SiAmazon,
   SiHtml5,
   SiCss3,
   SiSass,
@@ -68,6 +77,17 @@ const iconMap: Record<string, IconType> = {
   SiLinux,
   SiNpm,
   SiYarn,
+  SiFirebase,
+  SiBootstrap,
+  SiMui,
+  SiReactquery,
+  SiNestjs,
+  SiJsonwebtokens,
+  SiSupabase,
+  SiMysql,
+  SiNginx,
+  SiAuth0,
+  FaAws,
 };
 
 interface SkillCardProps {
