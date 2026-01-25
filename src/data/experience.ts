@@ -166,6 +166,7 @@ export interface Education {
   endDate: string;
   grade?: string;
   description?: string;
+  achievements?: string[];
 }
 
 export const education: Education[] = [
@@ -173,13 +174,40 @@ export const education: Education[] = [
     id: "bsc-cse",
     degree: "Bachelor of Science",
     field: "Computer Science & Engineering",
-    institution: "Bangladesh University of Engineering and Technology",
-    location: "Dhaka, Bangladesh",
-    startDate: "2016",
-    endDate: "2020",
-    grade: "CGPA: 3.75/4.00",
+    institution: "Pundra University of Science & Technology",
+    location: "Bangladesh",
+    startDate: "2021",
+    endDate: "2025",
     description:
-      "Focused on software engineering, data structures, algorithms, and web technologies. Participated in programming competitions and tech events.",
+      "Currently pursuing comprehensive computer science education with focus on software engineering, algorithms, data structures, and modern web technologies. Actively participating in programming competitions and tech events.",
+    achievements: [
+      "Maintained strong academic performance throughout the program",
+      "Completed multiple software development projects",
+      "Participated in programming competitions and hackathons",
+      "Gained hands-on experience with modern web technologies",
+    ],
+  },
+  {
+    id: "hsc-science",
+    degree: "Higher Secondary Certificate (HSC)",
+    field: "Science",
+    institution: "Moqbular Rahman Govt. College",
+    location: "Panchagarh, Bangladesh",
+    startDate: "2019",
+    endDate: "2020",
+    description:
+      "Completed higher secondary education with focus on science subjects.",
+  },
+  {
+    id: "ssc",
+    degree: "Secondary School Certificate (SSC)",
+    field: "Science",
+    institution: "Thekorpara High School",
+    location: "Bangladesh",
+    startDate: "2013",
+    endDate: "2018",
+    description:
+      "Completed secondary education with focus on science subjects.",
   },
 ];
 
