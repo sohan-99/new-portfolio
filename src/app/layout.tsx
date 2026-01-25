@@ -46,6 +46,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MFTV729B');`
         }} />
         {/* End Google Tag Manager */}
+        
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DWHDTHMHG"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3DWHDTHMHG');
+`
+        }} />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}
