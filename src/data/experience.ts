@@ -161,6 +161,7 @@ export interface Education {
   degree: string;
   field: string;
   institution: string;
+  institutionUrl?: string;
   location: string;
   startDate: string;
   endDate: string;
@@ -175,6 +176,7 @@ export const education: Education[] = [
     degree: "Bachelor of Science",
     field: "Computer Science & Engineering",
     institution: "Pundra University of Science & Technology",
+    institutionUrl: "https://pundrauniversity.ac.bd/",
     location: "Bangladesh",
     startDate: "2021",
     endDate: "2025",
@@ -192,6 +194,7 @@ export const education: Education[] = [
     degree: "Higher Secondary Certificate (HSC)",
     field: "Science",
     institution: "Moqbular Rahman Govt. College",
+    institutionUrl: "https://mrgovtcollegepanchagarh.org/",
     location: "Panchagarh, Bangladesh",
     startDate: "2019",
     endDate: "2020",
@@ -209,6 +212,7 @@ export const education: Education[] = [
     degree: "Secondary School Certificate (SSC)",
     field: "Science",
     institution: "Thekorpara High School",
+    institutionUrl: "https://thakarpara-high-school.vercel.app/",
     location: "Bangladesh",
     startDate: "2013",
     endDate: "2018",
@@ -233,26 +237,89 @@ export interface Certification {
 }
 
 export const certifications: Certification[] = [
+  
   {
-    id: "meta-frontend",
-    name: "Meta Front-End Developer Professional Certificate",
-    issuer: "Meta (Coursera)",
-    issueDate: "2023-06",
-    credentialUrl: "https://coursera.org/verify/professional-cert/example",
+    id: "web-development-programming-hero",
+    name: "Complete Web Development Course",
+    issuer: "Programming Hero",
+    issueDate: "2023-08",
+    credentialUrl: "https://drive.google.com/file/d/1S2zfnXCZezwsOCeaQliZMU4bsC4jHPgj/view?usp=sharing",
   },
   {
-    id: "aws-cloud",
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    issueDate: "2023-03",
-    expiryDate: "2026-03",
-    credentialUrl: "https://aws.amazon.com/verification",
+    id: "nasa-space-apps-2024",
+    name: "NASA International Space Apps Challenge - Galactic Problem Solver",
+    issuer: "NASA",
+    issueDate: "2024-10",
+    credentialUrl: "https://drive.google.com/file/d/1FBFWwyzUjYnA_sluD7GJ-GhHLlHz7cw8/view?usp=sharing",
   },
   {
-    id: "mongodb-associate",
-    name: "MongoDB Associate Developer",
-    issuer: "MongoDB",
-    issueDate: "2022-11",
-    credentialUrl: "https://university.mongodb.com/certification",
+    id: "react-native-ostad",
+    name: "Workshop on Mobile App Development with React Native",
+    issuer: "Ostad",
+    issueDate: "2024-10",
+    credentialUrl: "https://drive.google.com/file/d/12Fo68qN6YRjvpp_NWYC-57q7ElKPc0tb/view?usp=sharing",
+  },
+  {
+    id: "smart-cv-grameenphone",
+    name: "Smart CV",
+    issuer: "Grameenphone Academy",
+    issueDate: "2024-11",
+    credentialUrl: "https://drive.google.com/file/d/1phqA45Kh-M4mbAR2cfpiynRYlHd_18-6/view?usp=sharing",
+  },
+  {
+    id: "hackathon-pub-2024",
+    name: "Hackathon Participation - PUB CSE FEST 2024 (Innov8ors)",
+    issuer: "Pundra University of Science & Technology",
+    issueDate: "2024-11",
+    credentialUrl: "https://drive.google.com/file/d/11bzaWTX9meXU7L-EGoOwoM_iFw6D2wWA/view?usp=sharing",
+  },
+  {
+    id: "programming-contest-pub-2024",
+    name: "Programming Contest Participation - PUB CSE FEST 2024 (AlgoMystics)",
+    issuer: "Pundra University of Science & Technology",
+    issueDate: "2024-11",
+    credentialUrl: "https://drive.google.com/file/d/11HlwU4dIVxNIHeC92nTRseH-LIaLJDcj/view?usp=sharing",
+  },
+  {
+    id: "mern-fullstack-grameenphone",
+    name: "Full Stack Development with MERN",
+    issuer: "Grameenphone Academy (CodersTrust)",
+    issueDate: "2024-12",
+    credentialUrl: "https://drive.google.com/file/d/10ZYNHrFMmC4jMxb5Fby0pzdPzu8l9V4O/view?usp=sharing",
+  },
+  {
+    id: "campus-ambassador-phitron",
+    name: "Campus Ambassador (Phitronista'25) - Certificate of Recognition",
+    issuer: "Phitron.io",
+    issueDate: "2025-01",
+    credentialUrl: "https://drive.google.com/file/d/1PYkFAfNhbmVy1jnWzckRSWQKvI1zdZoq/view?usp=sharing",
+  },
+  {
+    id: "python-basics-uniathena",
+    name: "Basics of Python",
+    issuer: "UniAthena (Cambridge International Qualifications)",
+    issueDate: "2025-03",
+    credentialUrl: "https://drive.google.com/file/d/13aYKEZ4DUA7RcbauwsXN9IMHk1TNPT2U/view?usp=sharing",
+  },
+  {
+    id: "html-css-udemy",
+    name: "Master HTML and CSS by Building Real World Projects",
+    issuer: "Udemy",
+    issueDate: "2025-05",
+    credentialUrl: "https://drive.google.com/file/d/1PZCm8VqXW36qDENA7ZYIOS5mRSMrdC_k/view?usp=sharing",
+  },
+  {
+    id: "typescript-scrimba",
+    name: "Learn TypeScript",
+    issuer: "Scrimba",
+    issueDate: "2025-06",
+    credentialUrl: "https://drive.google.com/file/d/1RisxysWPNdkULSSxESSK32zlPcosulaB/view?usp=sharing",
+  },
+  {
+    id: "prompt-engineering-scrimba",
+    name: "Prompt Engineering for Web Developers",
+    issuer: "Scrimba",
+    issueDate: "2025-06",
+    credentialUrl: "https://drive.google.com/file/d/1vgvUvUhyzFTHRsdwhAiumV6pW3C3Jn1c/view?usp=sharing",
   },
 ];

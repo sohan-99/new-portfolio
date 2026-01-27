@@ -11,6 +11,7 @@ import {
   FiZap,
   FiAward,
   FiBookOpen,
+  FiExternalLink,
 } from "react-icons/fi";
 import { personalInfo, whatIDo, stats } from "@/data/personal";
 import { skills, skillCategories, getSkillsByCategory } from "@/data/skills";
@@ -205,9 +206,21 @@ export default function AboutContent() {
                           <h3 className="font-semibold text-slate-900 dark:text-white">
                             {edu.degree} in {edu.field}
                           </h3>
-                          <p className="text-primary-500 font-medium text-sm">
-                            {edu.institution}
-                          </p>
+                          {edu.institutionUrl ? (
+                            <a
+                              href={edu.institutionUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary-500 hover:text-primary-600 font-medium text-sm inline-flex items-center gap-1"
+                            >
+                              {edu.institution}
+                              <FiExternalLink className="w-3 h-3" />
+                            </a>
+                          ) : (
+                            <p className="text-primary-500 font-medium text-sm">
+                              {edu.institution}
+                            </p>
+                          )}
                           <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
                             {edu.startDate} - {edu.endDate}
                           </p>
@@ -284,7 +297,8 @@ export default function AboutContent() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-sm text-primary-500 hover:text-primary-600 mt-2"
                         >
-                          View Credential →
+                          View Credential
+                          <FiExternalLink className="w-3 h-3" />
                         </a>
                       )}
                     </motion.div>
