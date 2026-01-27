@@ -196,7 +196,13 @@ export const education: Education[] = [
     startDate: "2019",
     endDate: "2020",
     description:
-      "Completed higher secondary education with focus on science subjects.",
+      "Completed higher secondary education with focus on science subjects including Physics, Chemistry, Mathematics, and Biology. Developed strong analytical and problem-solving skills that laid the foundation for pursuing computer science.",
+    achievements: [
+      "Achieved strong results in science subjects",
+      "Developed interest in mathematics and logical thinking",
+      "Participated in academic competitions and science fairs",
+      "Built foundation for higher education in technology",
+    ],
   },
   {
     id: "ssc",
@@ -207,7 +213,13 @@ export const education: Education[] = [
     startDate: "2013",
     endDate: "2018",
     description:
-      "Completed secondary education with focus on science subjects.",
+      "Completed secondary education with comprehensive study of science subjects including Mathematics, Physics, Chemistry, and Biology. Built fundamental academic skills and developed curiosity for technology and problem-solving.",
+    achievements: [
+      "Successfully completed secondary education with science focus",
+      "Developed strong foundation in mathematics and sciences",
+      "Participated in school academic activities and events",
+      "Cultivated interest in technology and computers",
+    ],
   },
 ];
 
@@ -239,7 +251,7 @@ export const certifications: Certification[] = [
   {
     id: "mongodb-associate",
     name: "MongoDB Associate Developer",
-    issuer: "MongoDB University",
+    issuer: "MongoDB",
     issueDate: "2022-11",
     credentialUrl: "https://university.mongodb.com/certification",
   },

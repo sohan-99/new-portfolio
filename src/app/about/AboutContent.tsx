@@ -195,13 +195,13 @@ export default function AboutContent() {
                       whileHover={{ x: 5 }}
                       className="card p-6"
                     >
-                      <div className="flex items-start gap-4">
+                      <div className="flex items-start gap-4 mb-4">
                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center shrink-0">
                           <span className="text-white font-bold">
                             {edu.institution.charAt(0)}
                           </span>
                         </div>
-                        <div>
+                        <div className="flex-1">
                           <h3 className="font-semibold text-slate-900 dark:text-white">
                             {edu.degree} in {edu.field}
                           </h3>
@@ -218,6 +218,31 @@ export default function AboutContent() {
                           )}
                         </div>
                       </div>
+                      
+                      {edu.description && (
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-3 ml-16">
+                          {edu.description}
+                        </p>
+                      )}
+                      
+                      {edu.achievements && edu.achievements.length > 0 && (
+                        <div className="ml-16 mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+                          <h4 className="text-xs font-semibold text-slate-900 dark:text-white mb-2">
+                            Key Achievements:
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {edu.achievements.map((achievement, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400"
+                              >
+                                <span className="text-primary-500 mt-0.5 shrink-0">✓</span>
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </motion.div>
                   ))}
                 </div>
