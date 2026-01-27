@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUp } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiTwitter, FiMail} from "react-icons/fi";
 import { personalInfo } from "@/data/personal";
 import Image from "next/image";
 
 const quickLinks = [
-  // { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/experience", label: "Experience" },
@@ -157,17 +156,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-
-      {/* Back to top button */}
-      <motion.button
-        onClick={scrollToTop}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 right-8 w-12 h-12 rounded-xl bg-primary-500 text-white shadow-lg shadow-primary-500/25 flex items-center justify-center hover:bg-primary-600 transition-colors duration-200 z-40"
-        aria-label="Back to top"
-      >
-        <FiArrowUp className="w-5 h-5" />
-      </motion.button>
     </footer>
   );
 }

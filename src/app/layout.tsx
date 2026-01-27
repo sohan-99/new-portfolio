@@ -4,6 +4,8 @@ import '@/styles/globals.css';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import ScrollToTop from '@/components/ScrollToTop';
 import { generateSEO } from '@/lib/seo';
 
 const inter = Inter({
@@ -85,6 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <ScrollToTop />
+            <WhatsAppButton />
           </div>
         </ThemeProvider>
       </body>
