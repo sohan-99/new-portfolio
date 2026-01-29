@@ -14,17 +14,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "ecommerce-platform",
-    title: "E-Commerce Platform",
+    id: "news-portal",
+    title: "News Portal",
     description:
-      "A full-featured e-commerce platform with user authentication, product management, cart functionality, and payment integration.",
+      "A comprehensive news portal platform with real-time news updates, category filtering, article management, and responsive design.",
     longDescription:
-      "Built a comprehensive e-commerce solution featuring user authentication with JWT, product catalog with advanced filtering, shopping cart with persistent storage, Stripe payment integration, order management, and admin dashboard for inventory control.",
+      "Built a full-featured news portal with dynamic content management, multi-category news organization, real-time updates, advanced search functionality, article commenting system, social sharing integration, and admin dashboard for content control and analytics.",
     image: "/projects/ecommerce.jpg",
     techStack: ["Next.js", "TypeScript", "MongoDB", "Node.js", "Stripe", "Tailwind CSS"],
     category: "mern",
-    github: "https://github.com/sohanurrahman/ecommerce-platform",
-    liveUrl: "https://ecommerce-demo.vercel.app",
+    github: "https://github.com/sohan-99/bangladarpan",
+    liveUrl: "https://bangladarpan.com",
     featured: true,
     date: "2025-01",
   },

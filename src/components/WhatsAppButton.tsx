@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { FaWhatsapp, FaTimes } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { FaWhatsapp, FaTimes } from 'react-icons/fa';
 
 const WhatsAppFloat: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [whatsappNumber, setWhatsappNumber] = useState("01722562608");
+  const [whatsappNumber, setWhatsappNumber] = useState('01722562608');
 
   useEffect(() => {
     // Show the button after a short delay
@@ -20,14 +20,14 @@ const WhatsAppFloat: React.FC = () => {
     // Fetch WhatsApp number from settings
     const fetchWhatsAppNumber = async () => {
       try {
-        const response = await fetch("/api/settings");
+        const response = await fetch('/api/settings');
         const data = await response.json();
 
         if (data.success && data.settings.socialLinks.whatsapp) {
           setWhatsappNumber(data.settings.socialLinks.whatsapp);
         }
       } catch (error) {
-        console.error("Error fetching WhatsApp number:", error);
+        console.error('Error fetching WhatsApp number:', error);
         // Use default number if fetch fails
       }
     };
@@ -37,22 +37,17 @@ const WhatsAppFloat: React.FC = () => {
 
   const handleWhatsAppClick = () => {
     // Format the phone number (remove any non-digits and add country code if needed)
-    let formattedNumber = whatsappNumber.replace(/\D/g, "");
+    let formattedNumber = whatsappNumber.replace(/\D/g, '');
 
     // Add Bangladesh country code if not present
-    if (
-      !formattedNumber.startsWith("880") &&
-      formattedNumber.startsWith("01")
-    ) {
-      formattedNumber = "880" + formattedNumber.substring(1);
+    if (!formattedNumber.startsWith('880') && formattedNumber.startsWith('01')) {
+      formattedNumber = '880' + formattedNumber.substring(1);
     }
 
-    const message = encodeURIComponent(
-      "Hello! I'm interested in your services. Let's discuss!"
-    );
+    const message = encodeURIComponent("Hello! I'm interested in your services. Let's discuss!");
     const whatsappUrl = `https://wa.me/${formattedNumber}?text=${message}`;
 
-    window.open(whatsappUrl, "_blank");
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleClose = () => {
@@ -76,9 +71,8 @@ const WhatsAppFloat: React.FC = () => {
 
         {/* Main WhatsApp Button */}
         <button
-          onClick={handleWhatsAppClick}
           className="relative md:w-16 md:h-16 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl hover:shadow-green-500/50 flex items-center justify-center transition-all duration-300 transform hover:scale-110 animate-pulse hover:animate-none"
-          title="Chat on WhatsApp"
+          onClick={handleWhatsAppClick}
         >
           <FaWhatsapp className="text-2xl" />
 
