@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { FiGithub, FiExternalLink, FiImage, FiX, FiMaximize2 } from "react-icons/fi";
 import { Project } from "@/data/projects";
 import { useState, useEffect } from "react";
@@ -15,6 +14,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [showGallery, setShowGallery] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [imageAspectRatio, setImageAspectRatio] = useState<number | null>(null);
 
   const openGallery = () => {
     setShowGallery(true);
@@ -76,8 +76,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       >
         <div className="card overflow-hidden h-[480px] flex flex-col">
           {/* Image */}
-          <div 
-            className="relative h-48 md:h-56 flex-shrink-0 overflow-hidden bg-slate-100 dark:bg-slate-700 cursor-pointer"
+          <div
+            className={`relative w-full flex-shrink-0 overflow-hidden bg-slate-100 dark:bg-slate-700 cursor-pointer ${imageAspectRatio ? "" : "aspect-video"}`}
+            style={imageAspectRatio ? { aspectRatio: imageAspectRatio } : undefined}
             onClick={() => project.gallery && openGallery()}
           >
             <Image
@@ -86,6 +87,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               fill
               className="object-contain group-hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              onLoadingComplete={(img) => {
+                if (img.naturalWidth && img.naturalHeight) {
+                  setImageAspectRatio(img.naturalWidth / img.naturalHeight);
+                }
+              }}
             />
             {/* Gallery indicator */}
             {project.gallery && project.gallery.length > 1 && (
@@ -96,7 +102,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
               </div>
             )}
-          
           </div>
 
           {/* Content */}
