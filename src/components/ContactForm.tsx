@@ -200,7 +200,7 @@ export default function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="+880 1234-567890"
+          placeholder="+880 1722-562608"
           className="input"
           disabled={status === "submitting"}
         />
@@ -254,7 +254,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell me about your project..."
-          rows={5}
+          rows={3}
           className={`textarea resize-y ${
             errors.message
               ? "border-red-500 focus:ring-red-500"
@@ -307,7 +307,7 @@ export default function ContactForm() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800"
+          className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800"
         >
           <p className="text-green-700 dark:text-green-300 text-sm flex items-center gap-2">
             <FiCheck className="w-5 h-5" />
@@ -320,7 +320,7 @@ export default function ContactForm() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
+          className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
         >
           <p className="text-red-700 dark:text-red-300 text-sm flex items-center gap-2">
             <FiAlertCircle className="w-5 h-5" />

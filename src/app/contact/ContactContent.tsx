@@ -136,7 +136,7 @@ export default function ContactContent() {
 
                 {/* Social links */}
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
+                  <h3 className="text-xl  font-semibold text-slate-900 dark:text-white mb-6">
                     Connect with Me
                   </h3>
                   <div className="space-y-4">
@@ -170,7 +170,7 @@ export default function ContactContent() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="p-6 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 text-white mt-auto"
+                  className="p-6 bg-gradient-to-br from-primary-500 to-secondary-500 text-white mt-auto"
                 >
                   <h4 className="font-semibold text-lg mb-2">
                     Prefer a quick chat?

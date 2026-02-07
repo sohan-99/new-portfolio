@@ -151,8 +151,7 @@ export default function Footer() {
             © {currentYear} Sohanur Rahman Portfolio. All rights reserved.
           </p>
           <p className="text-slate-500 dark:text-slate-500 text-sm">
-            Built with{" "}
-            <span className="text-red-500">♥</span> using Next.js
+            Built with using Next.js
           </p>
         </div>
       </div>

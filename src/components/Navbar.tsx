@@ -110,7 +110,7 @@ export default function Navbar() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="hidden md:inline-flex btn-primary text-sm py-2 px-4"
+              className="hidden md:inline-flex btn-primary text-sm py-2 px-4 rounded-xl"
             >
               Hire Me
             </Link>
