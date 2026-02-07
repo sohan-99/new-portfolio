@@ -1,31 +1,24 @@
 import { NextResponse } from 'next/server';
-import { Post } from '@/types/dashboard';
-import { promises as fs } from 'fs';
-import path from 'path';
-
-const POSTS_FILE = path.join(process.cwd(), 'data', 'posts.json');
-
-async function readPosts(): Promise<Post[]> {
-  try {
-    const data = await fs.readFile(POSTS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
+import connectDB from '@/lib/mongodb';
+import Post from '@/lib/models/Post';
 
 export async function GET() {
   try {
-    const posts = await readPosts();
+    await connectDB();
+    
+    const totalPosts = await Post.countDocuments();
+    const publishedPosts = await Post.countDocuments({ published: true });
+    const draftPosts = await Post.countDocuments({ published: false });
     
     const stats = {
-      totalPosts: posts.length,
-      publishedPosts: posts.filter(p => p.published).length,
-      draftPosts: posts.filter(p => !p.published).length,
+      totalPosts,
+      publishedPosts,
+      draftPosts,
     };
 
     return NextResponse.json(stats);
   } catch (error) {
+    console.error('Error fetching post stats:', error);
     return NextResponse.json(
       { error: 'Failed to fetch stats' },
       { status: 500 }

@@ -1,30 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { DashboardProject } from '@/types/projects';
-import { promises as fs } from 'fs';
-import path from 'path';
-
-const PROJECTS_FILE = path.join(process.cwd(), 'data', 'dashboard-projects.json');
-
-async function readProjects(): Promise<DashboardProject[]> {
-  try {
-    const data = await fs.readFile(PROJECTS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-async function writeProjects(projects: DashboardProject[]) {
-  const dataDir = path.join(process.cwd(), 'data');
-  try {
-    await fs.access(dataDir);
-  } catch {
-    await fs.mkdir(dataDir, { recursive: true });
-  }
-  await fs.writeFile(PROJECTS_FILE, JSON.stringify(projects, null, 2));
-}
+import connectDB from '@/lib/mongodb';
+import Project from '@/lib/models/Project';
 
 // GET single project
 export async function GET(
@@ -32,15 +10,19 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const projects = await readProjects();
-    const project = projects.find((p) => p.id === params.id);
+    await connectDB();
+    const project = await Project.findOne({ id: params.id }).lean();
 
     if (!project) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    return NextResponse.json(project);
+    return NextResponse.json({
+      ...project,
+      _id: project._id.toString(),
+    });
   } catch (error) {
+    console.error('Error fetching project:', error);
     return NextResponse.json(
       { error: 'Failed to fetch project' },
       { status: 500 }
@@ -61,24 +43,38 @@ export async function PUT(
     }
 
     const body = await request.json();
-    const projects = await readProjects();
-    const index = projects.findIndex((p) => p.id === params.id);
+    await connectDB();
 
-    if (index === -1) {
+    const updatedProject = await Project.findOneAndUpdate(
+      { id: params.id },
+      {
+        $set: {
+          title: body.title,
+          description: body.description,
+          longDescription: body.longDescription,
+          image: body.image,
+          gallery: body.gallery,
+          techStack: body.techStack,
+          category: body.category,
+          github: body.github,
+          liveUrl: body.liveUrl,
+          featured: body.featured,
+          date: body.date,
+        },
+      },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedProject) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    const updatedProject: DashboardProject = {
-      ...projects[index],
-      ...body,
-      updatedAt: new Date().toISOString(),
-    };
-
-    projects[index] = updatedProject;
-    await writeProjects(projects);
-
-    return NextResponse.json(updatedProject);
+    return NextResponse.json({
+      ...updatedProject.toObject(),
+      _id: updatedProject._id.toString(),
+    });
   } catch (error) {
+    console.error('Error updating project:', error);
     return NextResponse.json(
       { error: 'Failed to update project' },
       { status: 500 }
@@ -98,17 +94,16 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const projects = await readProjects();
-    const filteredProjects = projects.filter((p) => p.id !== params.id);
+    await connectDB();
+    const deletedProject = await Project.findOneAndDelete({ id: params.id });
 
-    if (projects.length === filteredProjects.length) {
+    if (!deletedProject) {
       return NextResponse.json({ error: 'Project not found' }, { status: 404 });
     }
 
-    await writeProjects(filteredProjects);
-
     return NextResponse.json({ message: 'Project deleted' });
   } catch (error) {
+    console.error('Error deleting project:', error);
     return NextResponse.json(
       { error: 'Failed to delete project' },
       { status: 500 }

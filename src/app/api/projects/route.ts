@@ -1,45 +1,24 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { DashboardProject } from '@/types/projects';
-import { promises as fs } from 'fs';
-import path from 'path';
-
-const PROJECTS_FILE = path.join(process.cwd(), 'data', 'dashboard-projects.json');
-
-// Ensure data directory exists
-async function ensureDataDir() {
-  const dataDir = path.join(process.cwd(), 'data');
-  try {
-    await fs.access(dataDir);
-  } catch {
-    await fs.mkdir(dataDir, { recursive: true });
-  }
-}
-
-// Read projects from file
-async function readProjects(): Promise<DashboardProject[]> {
-  try {
-    await ensureDataDir();
-    const data = await fs.readFile(PROJECTS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-// Write projects to file
-async function writeProjects(projects: DashboardProject[]) {
-  await ensureDataDir();
-  await fs.writeFile(PROJECTS_FILE, JSON.stringify(projects, null, 2));
-}
+import connectDB from '@/lib/mongodb';
+import Project from '@/lib/models/Project';
 
 // GET all projects
 export async function GET() {
   try {
-    const projects = await readProjects();
-    return NextResponse.json(projects);
+    await connectDB();
+    const projects = await Project.find({}).sort({ createdAt: -1 }).lean();
+    
+    // Convert _id to string for JSON serialization
+    const projectsData = projects.map(project => ({
+      ...project,
+      _id: project._id.toString(),
+    }));
+    
+    return NextResponse.json(projectsData);
   } catch (error) {
+    console.error('Error fetching projects:', error);
     return NextResponse.json(
       { error: 'Failed to fetch projects' },
       { status: 500 }
@@ -57,9 +36,9 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const projects = await readProjects();
+    await connectDB();
 
-    const newProject: DashboardProject = {
+    const newProject = await Project.create({
       id: body.id || Date.now().toString(),
       title: body.title,
       description: body.description,
@@ -72,15 +51,17 @@ export async function POST(request: Request) {
       liveUrl: body.liveUrl || '',
       featured: body.featured || false,
       date: body.date || new Date().toISOString().slice(0, 7),
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    };
+    });
 
-    projects.unshift(newProject);
-    await writeProjects(projects);
-
-    return NextResponse.json(newProject, { status: 201 });
+    return NextResponse.json(
+      {
+        ...newProject.toObject(),
+        _id: newProject._id.toString(),
+      },
+      { status: 201 }
+    );
   } catch (error) {
+    console.error('Error creating project:', error);
     return NextResponse.json(
       { error: 'Failed to create project' },
       { status: 500 }
