@@ -2,10 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import '@/styles/globals.css';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
-import ScrollToTop from '@/components/ScrollToTop';
+import AuthProvider from '@/components/providers/AuthProvider';
+import ConditionalLayout from '@/components/ConditionalLayout';
 import { generateSEO } from '@/lib/seo';
 
 const inter = Inter({
@@ -82,15 +80,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          <div className="relative flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <ScrollToTop />
-            <WhatsAppButton />
-          </div>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+            <ConditionalLayout>{children}</ConditionalLayout>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

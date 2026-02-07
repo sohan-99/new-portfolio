@@ -27,6 +27,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# Data files (posts storage)
+/data/posts.json
+/data/dashboard-projects.json
+
 # Vercel
 .vercel
 
