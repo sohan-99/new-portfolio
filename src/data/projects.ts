@@ -112,31 +112,27 @@ export const projects: Project[] = [
     date: "2024-08",
   },
   {
-    id: "real-estate-app",
-    title: "Real Estate Listing App",
-    description:
-      "A property listing platform with advanced search, map integration, and virtual tour features.",
-    longDescription:
-      "Developed a real estate platform with property listings, advanced search with filters, Google Maps integration, virtual property tours, user favorites, and agent contact system.",
-    image: "https://placehold.co/800x600/ec4899/ffffff?text=Real+Estate",
-    techStack: ["React", "Node.js", "MongoDB", "Express", "Google Maps API", "Cloudinary"],
-    category: "fullstack",
-    github: "https://github.com/sohanurrahman/real-estate",
-    liveUrl: "https://realestate-demo.vercel.app",
-    featured: false,
-    date: "2024-06",
-  },
-  {
     id: "fitness-tracker",
     title: "Fitness Tracking App",
     description:
       "A health and fitness tracking application with workout logging, progress charts, and goal setting.",
     longDescription:
       "Created a fitness app with workout logging, exercise library, progress tracking with charts, goal setting, calorie tracking, and social features for workout sharing.",
-    image: "https://placehold.co/800x600/10b981/ffffff?text=Fitness+Tracker",
+    image: "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485084/th1_ltcjd1.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770482737/screencapture-thakarpara-high-school-vercel-app-2026-02-07-22_18_23_nfq6cc.png",
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485562/about_j0cka3.png",
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485556/addmission_bjt024.png",
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485084/th1_ltcjd1.jpg",
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485556/addmission_bjt024.png",
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485559/contact_cj4pji.png",
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485555/login_bimlne.png",
+      "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770485556/calender_jtberz.png"
+    ],
     techStack: ["React Native", "Node.js", "MongoDB", "Express", "Chart.js"],
     category: "fullstack",
     github: "https://github.com/sohanurrahman/fitness-tracker",
+    liveUrl: "https://gilsadash.vercel.app",
     featured: false,
     date: "2024-04",
   },
