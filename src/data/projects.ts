@@ -15,14 +15,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'news-portal',
-    title: 'News Portal',
+    id: 'bangladarpan-news-portal',
+    title: 'bangladarpan News Portal',
     description:
       'A comprehensive news portal platform with real-time news updates, category filtering, article management, and responsive design.',
     longDescription:
       'Built a full-featured news portal with dynamic content management, multi-category news organization, real-time updates, advanced search functionality, article commenting system, social sharing integration, and admin dashboard for content control and analytics.',
-    image: 'https://res.cloudinary.com/dd8i4xavo/image/upload/v1769773826/main_y3g8oa.png',
+    image: "https://res.cloudinary.com/dd8i4xavo/image/upload/v1770491190/cff4478e-2d3a-4dca-9ec9-4c4c5ab9c714_yhukju.jpg",
     gallery: [
+      'https://res.cloudinary.com/dd8i4xavo/image/upload/v1769773826/main_y3g8oa.png',
       'https://res.cloudinary.com/dd8i4xavo/image/upload/v1769773826/main_y3g8oa.png',
       'https://res.cloudinary.com/dd8i4xavo/image/upload/v1769773248/maindash_uvktbi.png',
       'https://res.cloudinary.com/dd8i4xavo/image/upload/v1769773675/addpost_hp0npl.jpg',

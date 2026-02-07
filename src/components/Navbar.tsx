@@ -112,7 +112,7 @@ export default function Navbar() {
               href="/contact"
               className="hidden md:inline-flex btn-primary text-sm py-2 px-4"
             >
-              Let's Talk
+              Hire Me
             </Link>
 
             {/* Mobile menu button */}
@@ -194,7 +194,7 @@ export default function Navbar() {
                       href="/contact"
                       className="btn-primary w-full text-center"
                     >
-                      Let's Talk
+                      Hire Me
                     </Link>
                   </motion.div>
                 </div>
