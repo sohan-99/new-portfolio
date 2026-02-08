@@ -65,11 +65,12 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden"
         >
           {post.image && (
-            <div className="aspect-video w-full overflow-hidden bg-gray-200 dark:bg-slate-700">
+            <div className="w-full overflow-hidden bg-gray-200 dark:bg-slate-700">
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                className="object-contain"
+                // className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           )}

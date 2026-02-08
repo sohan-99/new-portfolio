@@ -62,11 +62,11 @@ export default function BlogPage() {
                 className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 {post.image && (
-                  <div className="aspect-video w-full overflow-hidden bg-gray-200 dark:bg-slate-700">
+                  <div className=" w-full overflow-hidden bg-gray-200 dark:bg-slate-700">
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className=" object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 )}
