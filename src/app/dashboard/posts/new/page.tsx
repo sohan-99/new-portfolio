@@ -36,14 +36,18 @@ export default function NewPostPage() {
         }),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         router.push('/dashboard/posts');
       } else {
-        alert('Failed to create post');
+        const errorMessage = data.details || data.error || 'Failed to create post';
+        alert(errorMessage);
+        console.error('Error response:', data);
       }
     } catch (error) {
       console.error('Error creating post:', error);
-      alert('An error occurred');
+      alert('An error occurred while creating the post');
     } finally {
       setLoading(false);
     }

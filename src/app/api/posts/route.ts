@@ -36,6 +36,15 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
+    
+    // Validate required fields
+    if (!body.title || !body.description || !body.content) {
+      return NextResponse.json(
+        { error: 'Missing required fields: title, description, and content are required' },
+        { status: 400 }
+      );
+    }
+
     await connectDB();
 
     const newPost = await Post.create({
@@ -56,10 +65,13 @@ export async function POST(request: Request) {
       },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating post:', error);
     return NextResponse.json(
-      { error: 'Failed to create post' },
+      { 
+        error: 'Failed to create post',
+        details: error.message || 'Unknown error'
+      },
       { status: 500 }
     );
   }
