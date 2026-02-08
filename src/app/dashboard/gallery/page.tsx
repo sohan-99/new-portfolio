@@ -13,7 +13,7 @@ export default function GalleryPage() {
       >
         <SectionHeader
           title="Image Gallery"
-          subtitle="Upload and manage your images"
+          description="Upload and manage your images"
         />
       </motion.div>
 
