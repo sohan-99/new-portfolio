@@ -125,12 +125,12 @@ export const projects: Project[] = [
     date: '2024-11',
   },
   {
-    id: 'smart-home-services',
-    title: 'Smart Home Services',
+    id: 'smart-services-platform',
+    title: 'Smart Services Platform',
     description:
       'A comprehensive platform for managing and automating smart home devices, offering seamless integration, remote control, and personalized automation features.',
     longDescription:
-      'Developed a smart home services platform with device management, automation rules, remote control, energy monitoring, voice assistant integration, and user-friendly interface. The system supports a wide range of smart devices, allowing users to create custom automation scenarios based on time, location, and device status for enhanced convenience and energy efficiency.',
+      'Developed a smart services platform with device management, automation rules, remote control, energy monitoring, voice assistant integration, and user-friendly interface. The system supports a wide range of smart devices, allowing users to create custom automation scenarios based on time, location, and device status for enhanced convenience and energy efficiency.',
     image: 'https://res.cloudinary.com/dd8i4xavo/image/upload/v1770486716/nx1_dnhuyw.jpg',
     gallery: [
       'https://res.cloudinary.com/dd8i4xavo/image/upload/v1770310599/1nx_s9kya9.png',
