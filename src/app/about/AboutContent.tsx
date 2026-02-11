@@ -91,7 +91,7 @@ export default function AboutContent() {
                     className="btn-primary"
                   >
                     <FiDownload className="w-4 h-4" />
-                    Download CV
+                    Download Resume
                   </a>
                   <Link href="/contact" className="btn-secondary">
                     Get in Touch

@@ -206,7 +206,7 @@ export default function Hero() {
                   className="btn-outline group"
                 >
                   <FiDownload className="w-4 h-4" />
-                  Download CV
+                  Download Resume
                 </a>
               </motion.div>
 
