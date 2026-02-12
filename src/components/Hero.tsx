@@ -193,10 +193,6 @@ export default function Hero() {
                 variants={item}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8"
               >
-                <Link href="/contact" className="btn-primary group">
-                  Hire Me
-                  <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
                 <Link href="/projects" className="btn-secondary group">
                   View Projects
                   <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
