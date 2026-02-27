@@ -99,13 +99,16 @@ export default function SkillCard({ skill, index }: SkillCardProps) {
   const Icon = iconMap[skill.iconName] || SiReact;
 
   return (
-    <motion.div
+    <motion.a
+      href={skill.url}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -5, scale: 1.02 }}
-      className="card p-4 md:p-6 group cursor-pointer"
+      className="card p-4 md:p-6 group cursor-pointer block"
     >
       <div className="flex items-start gap-4">
         {/* Icon */}
@@ -147,7 +150,7 @@ export default function SkillCard({ skill, index }: SkillCardProps) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -156,7 +159,10 @@ export function SkillCardCompact({ skill, index }: SkillCardProps) {
   const Icon = iconMap[skill.iconName] || SiReact;
 
   return (
-    <motion.div
+    <motion.a
+      href={skill.url}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -173,6 +179,6 @@ export function SkillCardCompact({ skill, index }: SkillCardProps) {
       <span className="text-xs font-medium text-slate-600 dark:text-slate-300 text-center">
         {skill.name}
       </span>
-    </motion.div>
+    </motion.a>
   );
 }
