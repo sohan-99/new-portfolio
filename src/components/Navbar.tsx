@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
@@ -22,6 +23,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const { data: session, status } = useSession();
+  const isLoggedIn = status === "authenticated" && !!session;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,6 +111,14 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
+            {isLoggedIn && (
+              <Link
+                href="/dashboard"
+                className="hidden md:inline-flex relative px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+              >
+                Dashboard
+              </Link>
+            )}
             <ThemeToggle />
             <Link
               href="/contact"
@@ -183,6 +194,20 @@ export default function Navbar() {
                       </Link>
                     </motion.div>
                   ))}
+                  {isLoggedIn && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: navLinks.length * 0.1 }}
+                    >
+                      <Link
+                        href="/dashboard"
+                        className="block px-4 py-3 rounded-xl text-lg font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200"
+                      >
+                        Dashboard
+                      </Link>
+                    </motion.div>
+                  )}
                 </nav>
 
                 <div className="mt-auto">
