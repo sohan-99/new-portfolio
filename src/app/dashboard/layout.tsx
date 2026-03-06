@@ -23,8 +23,9 @@ export default function DashboardLayout({
     { name: 'Settings', href: '/dashboard/settings', icon: FiSettings },
   ];
 
-  const handleSignOut = () => {
-    signOut({ callbackUrl: '/' });
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+    window.location.href = '/';
   };
 
   return (
