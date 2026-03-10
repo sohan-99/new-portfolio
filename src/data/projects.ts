@@ -147,6 +147,25 @@ export const projects: Project[] = [
     featured: false,
     date: '2024-08',
   },
+  // {
+  //   id: 'araxlab',
+  //   title: 'Araxlab',
+  //   description:
+  //     'A modern IT company and software development agency website featuring services showcase, portfolio/case studies, client testimonials, and contact management system.',
+  //   longDescription:
+  //     'Developed a comprehensive corporate website for Araxlab IT company using Next.js App Router architecture with scalable routing structure separating public and authenticated sections. Features include services overview, portfolio showcase, contact form with API integration, newsletter subscription, admin authentication, smooth animations with GSAP and Lenis, responsive design with Tailwind CSS, SEO optimization, and enterprise-ready code structure. Built with component governance principles including reusable UI primitives, layout components, and business logic isolation for maintainability and scalability.',
+  //   image: 'https://res.cloudinary.com/dd8i4xavo/image/upload/v1773160072/260310_22h24m37s_screenshot_tflpy9.png',
+  //   gallery: [
+  //     'https://res.cloudinary.com/dd8i4xavo/image/upload/v1773148425/screencapture-araxlab-2026-03-10-19_12_50_pyz2km.png',
+  //     'https://res.cloudinary.com/dd8i4xavo/image/upload/v1773148658/screencapture-araxlab-2026-03-10-19_17_08_aupfoq.png',
+  //   ],
+  //   techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'GSAP', 'Lenis', 'React Hook Form', 'React Hot Toast', 'React Icons', 'React Phone Number Input', 'Swiper', 'Prisma'],
+  //   category: 'fullstack',
+  //   github: 'https://github.com/sohan-99/araxlab',
+  //   liveUrl: 'https://www.araxlab.com',
+  //   featured: false,
+  //   date: '2024-08',
+  // },
   {
     id: 'thakarpara-school-management-system',
     title: 'Thakarpara School Website',

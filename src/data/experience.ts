@@ -18,6 +18,7 @@ export const experiences: Experience[] = [
     id: "fullstack-developer-araxlab",
     title: "Full Stack Developer",
     company: "Araxlab",
+    companyUrl: "https://araxlab.fr",
     location: "Remote",
     type: "full-time",
     startDate: "2025-12",
