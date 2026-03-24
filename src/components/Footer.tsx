@@ -76,7 +76,6 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
           {/* Quick links */}
           <div className="text-center md:text-left">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-4">
@@ -95,7 +94,6 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
           {/* Contact info */}
           <div className="text-center md:text-left">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-4">
@@ -144,7 +142,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
         {/* Bottom bar */}
         <div className="py-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-600 dark:text-slate-400 text-sm text-center sm:text-left">
