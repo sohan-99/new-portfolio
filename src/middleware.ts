@@ -8,15 +8,27 @@ export async function middleware(request: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
+  const { pathname, search, searchParams } = request.nextUrl;
   const isAuthPage = request.nextUrl.pathname.startsWith('/login');
   const isDashboard = request.nextUrl.pathname.startsWith('/dashboard');
+  const redirectTo = (path: string) =>
+    NextResponse.redirect(new URL(path, request.url));
 
   if (isDashboard && !token) {
-    return NextResponse.redirect(new URL('/login', request.url));
+    const loginUrl = new URL('/login', request.url);
+    loginUrl.searchParams.set('callbackUrl', `${pathname}${search}`);
+    return NextResponse.redirect(loginUrl);
   }
 
   if (isAuthPage && token) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    const callbackUrl = searchParams.get('callbackUrl');
+    const isSafeInternalPath =
+      callbackUrl &&
+      callbackUrl.startsWith('/') &&
+      !callbackUrl.startsWith('//') &&
+      !callbackUrl.startsWith('/login');
+
+    return redirectTo(isSafeInternalPath ? callbackUrl : '/dashboard');
   }
 
   return NextResponse.next();
