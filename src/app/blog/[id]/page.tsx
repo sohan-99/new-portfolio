@@ -69,8 +69,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
               <img
                 src={post.image}
                 alt={post.title}
-                className="object-contain"
-                // className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover"
               />
             </div>
           )}
