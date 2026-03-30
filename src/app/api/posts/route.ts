@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import connectDB from '@/lib/mongodb';
 import Post from '@/lib/models/Post';
+import Counter from '@/lib/models/Counter';
 
 // GET all posts
 export async function GET() {
@@ -47,16 +48,43 @@ export async function POST(request: Request) {
 
     await connectDB();
 
-    const newPost = await Post.create({
-      id: Date.now().toString(),
-      title: body.title,
-      description: body.description,
-      content: body.content,
-      image: body.image || '',
-      category: body.category || 'Uncategorized',
-      tags: body.tags || [],
-      published: body.published || false,
-    });
+    let newPost = null;
+
+    // Generate a strictly increasing ID (1, 2, 3, ...).
+    for (let attempt = 0; attempt < 5; attempt++) {
+      const counter = await Counter.findByIdAndUpdate(
+        'postId',
+        { $inc: { seq: 1 } },
+        { new: true, upsert: true, setDefaultsOnInsert: true }
+      );
+
+      const nextId = String(counter?.seq ?? 1);
+
+      try {
+        newPost = await Post.create({
+          id: nextId,
+          title: body.title,
+          description: body.description,
+          content: body.content,
+          image: body.image || '',
+          category: body.category || 'Uncategorized',
+          tags: body.tags || [],
+          published: body.published || false,
+        });
+        break;
+      } catch (error: any) {
+        if (error?.code !== 11000) {
+          throw error;
+        }
+      }
+    }
+
+    if (!newPost) {
+      return NextResponse.json(
+        { error: 'Failed to create a unique post ID' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       {
