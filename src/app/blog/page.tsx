@@ -54,56 +54,58 @@ export default function BlogPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {posts.map((post, index) => (
-              <motion.article
+              <Link
                 key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                href={`/blog/${post.id}`}
+                className="block group focus:outline-none"
               >
-                {post.image && (
-                  <div className=" w-full overflow-hidden bg-gray-200 dark:bg-slate-700">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className=" object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
-                      >
-                        {tag}
+                <motion.article
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="h-80 flex flex-col bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden group-hover:shadow-xl transition-shadow duration-300"
+                >
+                  {post.image && (
+                    <div className="w-full h-40 overflow-hidden bg-gray-200 dark:bg-slate-700">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-1 line-clamp-3">
+                      {post.description}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <time className="text-xs text-gray-500 dark:text-gray-500">
+                        {new Date(post.createdAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric',
+                        })}
+                      </time>
+                      <span className="text-primary group-hover:text-primary-dark font-medium text-sm transition-colors">
+                        Read more →
                       </span>
-                    ))}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
-                    {post.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <time className="text-sm text-gray-500 dark:text-gray-500">
-                      {new Date(post.createdAt).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                      })}
-                    </time>
-                    <Link
-                      href={`/blog/${post.id}`}
-                      className="text-primary hover:text-primary-dark font-medium text-sm transition-colors"
-                    >
-                      Read more →
-                    </Link>
-                  </div>
-                </div>
-              </motion.article>
+                </motion.article>
+              </Link>
             ))}
           </div>
         )}

@@ -62,18 +62,18 @@ export default function ProjectsManagementPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Projects</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Projects</h1>
         <Link
           href="/dashboard/manage-projects/new"
-          className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors w-full sm:w-auto"
         >
           <FiPlus /> New Project
         </Link>
       </div>
 
       {/* Filters */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {(['all', 'featured', 'fullstack', 'frontend'] as const).map((f) => (
           <button
             key={f}
@@ -124,9 +124,9 @@ export default function ProjectsManagementPage() {
 
                 {/* Project Info */}
                 <div className="flex-1 p-6">
-                  <div className="flex items-start justify-between">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
                         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                           {project.title}
                         </h3>
@@ -190,7 +190,7 @@ export default function ProjectsManagementPage() {
                         )}
                       </div>
                     </div>
-                    <div className="flex gap-2 ml-4">
+                    <div className="flex flex-wrap gap-2 sm:ml-4 sm:justify-end">
                       <Link
                         href={`/dashboard/manage-projects/${project.id}`}
                         className="p-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"

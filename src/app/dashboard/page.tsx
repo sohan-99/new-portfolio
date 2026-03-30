@@ -97,20 +97,20 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white break-words">
           Welcome back, {session?.user?.name}!
         </h1>
         <Link
           href="/dashboard/posts/new"
-          className="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
+          className="inline-flex items-center justify-center px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors w-full sm:w-auto"
         >
           New Post
         </Link>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
         {statsCards.map((stat, index) => (
           <motion.div
             key={stat.title}

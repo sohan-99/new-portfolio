@@ -45,6 +45,41 @@ export default function PostsPage() {
     }
   };
 
+  const handleStatusToggle = async (post: Post) => {
+    const nextPublished = !post.published;
+
+    try {
+      const response = await fetch(`/api/posts/${post.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: post.title,
+          description: post.description,
+          content: post.content,
+          image: post.image || '',
+          category: post.category,
+          tags: post.tags,
+          published: nextPublished,
+        }),
+      });
+
+      if (response.ok) {
+        setPosts((prevPosts) =>
+          prevPosts.map((item) =>
+            item.id === post.id ? { ...item, published: nextPublished } : item
+          )
+        );
+      } else {
+        alert('Failed to update post status');
+      }
+    } catch (error) {
+      console.error('Error updating post status:', error);
+      alert('An error occurred while updating status');
+    }
+  };
+
   const filteredPosts = posts.filter((post) => {
     if (filter === 'published') return post.published;
     if (filter === 'draft') return !post.published;
@@ -61,18 +96,18 @@ export default function PostsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Posts</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Posts</h1>
         <Link
           href="/dashboard/posts/new"
-          className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors w-full sm:w-auto"
         >
           <FiPlus /> New Post
         </Link>
       </div>
 
       {/* Filters */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {(['all', 'published', 'draft'] as const).map((f) => (
           <button
             key={f}
@@ -109,9 +144,9 @@ export default function PostsPage() {
               transition={{ delay: index * 0.05 }}
               className="bg-white dark:bg-slate-800 rounded-lg shadow p-6"
             >
-              <div className="flex items-start justify-between">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                       {post.title}
                     </h3>
@@ -154,7 +189,33 @@ export default function PostsPage() {
                     })}
                   </p>
                 </div>
-                <div className="flex gap-2 ml-4">
+                <div className="flex flex-wrap gap-2 sm:ml-4 sm:justify-end">
+                  <button
+                    onClick={() => handleStatusToggle(post)}
+                    className={`inline-flex items-center gap-1 px-3 py-2 rounded-md transition-colors text-sm font-medium ${
+                      post.published
+                        ? 'text-amber-700 bg-amber-50 hover:bg-amber-100 dark:bg-amber-900/20 dark:text-amber-300 dark:hover:bg-amber-900/30'
+                        : 'text-indigo-700 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/20 dark:text-indigo-300 dark:hover:bg-indigo-900/30'
+                    }`}
+                    title={post.published ? 'Move to Draft' : 'Publish'}
+                  >
+                    {post.published ? <FiEyeOff size={16} /> : <FiEye size={16} />}
+                    {post.published ? 'Draft' : 'Publish'}
+                  </button>
+                  <Link
+                    href={`/blog/${post.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-1 px-3 py-2 rounded-md transition-colors text-sm font-medium ${
+                      post.published
+                        ? 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-900/20 dark:text-emerald-300 dark:hover:bg-emerald-900/30'
+                        : 'text-gray-400 bg-gray-100 cursor-not-allowed dark:bg-slate-700 dark:text-gray-500 pointer-events-none'
+                    }`}
+                    title={post.published ? 'View Blog' : 'Only published posts are publicly visible'}
+                    aria-disabled={!post.published}
+                  >
+                    <FiEye size={16} /> View
+                  </Link>
                   <Link
                     href={`/dashboard/posts/${post.id}`}
                     className="p-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
