@@ -188,6 +188,9 @@ export default function PostsPage() {
                       day: 'numeric',
                     })}
                   </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    {post.viewCount ?? 0} views
+                  </p>
                 </div>
                 <div className="flex flex-wrap gap-2 sm:ml-4 sm:justify-end">
                   <button

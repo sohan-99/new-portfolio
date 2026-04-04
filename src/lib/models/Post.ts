@@ -10,6 +10,7 @@ export interface IPost {
   category: string;
   tags: string[];
   published: boolean;
+  viewCount: number;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -49,6 +50,10 @@ const PostSchema = new Schema<IPost>(
     published: {
       type: Boolean,
       default: false,
+    },
+    viewCount: {
+      type: Number,
+      default: 0,
     },
   },
   {

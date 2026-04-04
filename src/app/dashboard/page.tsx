@@ -14,6 +14,7 @@ export default function DashboardPage() {
     totalPosts: 0,
     publishedPosts: 0,
     draftPosts: 0,
+    totalViews: 0,
   });
   const [projectStats, setProjectStats] = useState({
     totalProjects: 0,
@@ -80,6 +81,12 @@ export default function DashboardPage() {
       value: stats.draftPosts,
       icon: FiEdit,
       color: 'bg-yellow-500',
+    },
+    {
+      title: 'Total Views',
+      value: stats.totalViews,
+      icon: FiEye,
+      color: 'bg-cyan-500',
     },
     {
       title: 'Total Projects',

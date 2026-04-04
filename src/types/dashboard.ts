@@ -7,6 +7,7 @@ export interface Post {
   category: string;
   tags: string[];
   published: boolean;
+  viewCount: number;
   createdAt: string;
   updatedAt: string;
 }

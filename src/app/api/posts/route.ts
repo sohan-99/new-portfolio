@@ -70,6 +70,7 @@ export async function POST(request: Request) {
           category: body.category || 'Uncategorized',
           tags: body.tags || [],
           published: body.published || false,
+          viewCount: 0,
         });
         break;
       } catch (error: any) {

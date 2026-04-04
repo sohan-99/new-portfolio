@@ -11,7 +11,20 @@ export async function GET(
 ) {
   try {
     await connectDB();
-    const post = await Post.findOne({ id: params.id }).lean();
+    const { searchParams } = new URL(request.url);
+    const shouldTrackView = searchParams.get('trackView') === '1';
+
+    let post;
+
+    if (shouldTrackView) {
+      post = await Post.findOneAndUpdate(
+        { id: params.id, published: true },
+        { $inc: { viewCount: 1 } },
+        { new: true }
+      ).lean();
+    } else {
+      post = await Post.findOne({ id: params.id }).lean();
+    }
 
     if (!post) {
       return NextResponse.json({ error: 'Post not found' }, { status: 404 });
@@ -19,6 +32,7 @@ export async function GET(
 
     return NextResponse.json({
       ...post,
+      viewCount: post.viewCount ?? 0,
       _id: post._id.toString(),
     });
   } catch (error) {

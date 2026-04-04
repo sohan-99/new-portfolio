@@ -1,21 +1,28 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FiArrowLeft, FiCalendar, FiTag } from 'react-icons/fi';
+import { FiArrowLeft, FiCalendar, FiEye, FiTag } from 'react-icons/fi';
 import { Post } from '@/types/dashboard';
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
+  const trackedPostIdRef = useRef<string | null>(null);
 
   useEffect(() => {
+    if (trackedPostIdRef.current === params.id) {
+      return;
+    }
+
+    trackedPostIdRef.current = params.id;
+
     const fetchPost = async () => {
       try {
-        const response = await fetch(`/api/posts/${params.id}`);
+        const response = await fetch(`/api/posts/${params.id}?trackView=1`);
         if (response.ok) {
           const data = await response.json();
           if (!data.published) {
@@ -108,6 +115,11 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
                   <span>{post.category}</span>
                 </>
               )}
+              <span>•</span>
+              <div className="flex items-center gap-2">
+                <FiEye />
+                <span>{post.viewCount ?? 0} views</span>
+              </div>
             </div>
 
             <div className="prose prose-lg dark:prose-invert max-w-none">

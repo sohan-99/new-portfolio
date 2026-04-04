@@ -9,11 +9,22 @@ export async function GET() {
     const totalPosts = await Post.countDocuments();
     const publishedPosts = await Post.countDocuments({ published: true });
     const draftPosts = await Post.countDocuments({ published: false });
+    const viewsAggregate = await Post.aggregate([
+      {
+        $group: {
+          _id: null,
+          totalViews: {
+            $sum: { $ifNull: ['$viewCount', 0] },
+          },
+        },
+      },
+    ]);
     
     const stats = {
       totalPosts,
       publishedPosts,
       draftPosts,
+      totalViews: viewsAggregate[0]?.totalViews ?? 0,
     };
 
     return NextResponse.json(stats);
