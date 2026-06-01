@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://sohanurrahman.dev/sitemap.xml
+Sitemap: https://sohanurdev.tech/sitemap.xml
 
 # Disallow admin and api routes from being crawled
 Disallow: /api/
