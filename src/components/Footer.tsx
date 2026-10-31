@@ -28,9 +28,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+    <footer className="relative border-t border-slate-200 dark:border-white/10 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-50 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-mesh opacity-40 pointer-events-none" />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main footer content */}
@@ -51,11 +51,11 @@ export default function Footer() {
                   className="object-cover"
                 />
               </div>
-              <span className="sm:block font-bold text-xl text-slate-900 dark:text-white">
-                Sohan<span className="text-primary-500">.</span>
+              <span className="sm:block font-display font-bold text-xl text-slate-900 dark:text-white">
+                sohan<span className="text-primary-400">.dev</span>
               </span>
           </Link>
-            <p className="text-slate-600 dark:text-slate-400 max-w-md mb-6 mx-auto md:mx-0">
+            <p className="text-slate-600 dark:text-slate-400 max-w-md my-6 mx-auto md:mx-0">
               {personalInfo.shortBio}
             </p>
             {/* Social links */}
@@ -68,7 +68,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary-500 hover:border-primary-500 transition-colors duration-200"
+                  className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary-500 hover:border-primary-500 transition-colors duration-200"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
           {/* Quick links */}
           <div className="text-center md:text-left">
-            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-4">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -96,7 +96,7 @@ export default function Footer() {
           </div>
           {/* Contact info */}
           <div className="text-center md:text-left">
-            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-4">
               Get in Touch
             </h3>
             <ul className="space-y-3">
@@ -148,7 +148,7 @@ export default function Footer() {
             © {currentYear} Sohanur Rahman Portfolio. All rights reserved.
           </p>
           <p className="text-slate-500 dark:text-slate-500 text-sm">
-            Built with using Next.js
+            Built with Next.js, Tailwind & Framer Motion
           </p>
         </div>
       </div>

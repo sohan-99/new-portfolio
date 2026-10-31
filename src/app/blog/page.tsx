@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Post } from '@/types/dashboard';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { PageSkeleton } from "@/components/ui/Skeleton";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -31,9 +32,7 @@ export default function BlogPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
+      <PageSkeleton />
     );
   }
 

@@ -51,97 +51,87 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-sm border-b border-slate-200/50 dark:border-slate-700/50"
-          : "bg-transparent"
-      )}
-    >
-      <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="relative z-50 flex items-center gap-2 group"
-          >
-              <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-600/20">
-                <Image
-                  src="/favicon.png"
-                  alt="Sohan"
-                  width={40}
-                  height={40}
-                  className="object-cover"
-                />
-              </div>
-              <span className="sm:block font-bold text-xl text-slate-900 dark:text-white">
-                Sohan<span className="text-primary-500">.</span>
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+      <nav
+        className={cn(
+          "mx-auto flex items-center justify-between gap-4 h-14 rounded-full border px-3 pl-4 transition-all duration-500",
+          isScrolled
+            ? "max-w-4xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-slate-200 dark:border-white/10 shadow-lg shadow-black/5 dark:shadow-black/40"
+            : "max-w-6xl bg-transparent border-transparent"
+        )}
+      >
+        {/* Logo */}
+        <Link href="/" className="relative z-50 flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-primary-400/40 group-hover:ring-primary-400 transition">
+            <Image
+              src="/favicon.png"
+              alt="Sohan"
+              width={32}
+              height={32}
+              className="object-cover"
+            />
+          </div>
+          <span className="font-display font-bold text-lg text-slate-900 dark:text-white">
+            sohan<span className="text-primary-400">.dev</span>
+          </span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-0.5">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="relative px-3.5 py-1.5 group"
+            >
+              <span
+                className={cn(
+                  "relative z-10 text-sm font-medium transition-colors duration-200",
+                  pathname === link.href
+                    ? "text-slate-900 dark:text-white"
+                    : "text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white"
+                )}
+              >
+                {link.label}
               </span>
+              {pathname === link.href && (
+                <motion.div
+                  layoutId="navbar-indicator"
+                  className="absolute inset-0 bg-slate-900/5 dark:bg-white/10 rounded-full"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+            </Link>
+          ))}
+        </div>
+
+        {/* Right side */}
+        <div className="flex items-center gap-2">
+          {isLoggedIn && (
+            <Link
+              href="/dashboard"
+              className="hidden md:inline-flex px-3.5 py-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+            >
+              Dashboard
+            </Link>
+          )}
+          <ThemeToggle />
+          <Link
+            href="/contact"
+            className="hidden md:inline-flex btn-primary text-sm py-2 px-5"
+          >
+            Hire Me
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="relative px-4 py-2 group"
-              >
-                <span
-                  className={cn(
-                    "relative z-10 text-sm font-medium transition-colors duration-200",
-                    pathname === link.href
-                      ? "text-primary-500"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-                  )}
-                >
-                  {link.label}
-                </span>
-                {pathname === link.href && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute inset-0 bg-primary-50 dark:bg-primary-900/30 rounded-lg"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-              </Link>
-            ))}
-          </div>
-
-          {/* Right side */}
-          <div className="flex items-center gap-3">
-            {isLoggedIn && (
-              <Link
-                href="/dashboard"
-                className="hidden md:inline-flex relative px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-              >
-                Dashboard
-              </Link>
-            )}
-            <ThemeToggle />
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex btn-primary text-sm py-2 px-4 rounded-xl"
-            >
-              Hire Me
-            </Link>
-
-            {/* Mobile menu button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="relative z-50 md:hidden w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <FiX className="w-5 h-5" />
-              ) : (
-                <FiMenu className="w-5 h-5" />
-              )}
-            </motion.button>
-          </div>
+          {/* Mobile menu button */}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsOpen(!isOpen)}
+            className="relative z-50 md:hidden w-10 h-10 rounded-full bg-slate-900/5 dark:bg-white/10 flex items-center justify-center"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
+          </motion.button>
         </div>
       </nav>
 
@@ -184,9 +174,9 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         className={cn(
-                          "block px-4 py-3 rounded-xl text-lg font-medium transition-colors duration-200",
+                          "block px-4 py-3 rounded-2xl font-display text-2xl font-semibold transition-colors duration-200",
                           pathname === link.href
-                            ? "bg-primary-50 dark:bg-primary-900/30 text-primary-500"
+                            ? "bg-primary-400/10 text-primary-500 dark:text-primary-300"
                             : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                         )}
                       >

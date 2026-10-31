@@ -22,7 +22,7 @@ export default function SectionHeader({
     <div className={`mb-12 md:mb-16 ${centered ? "text-center" : ""}`}>
       {badge && (
         <FadeInUp delay={0}>
-          <span className="inline-block badge mb-4">{badge}</span>
+          <span className="badge mb-5"><span className="w-1.5 h-1.5 rounded-full bg-primary-400" />{badge}</span>
         </FadeInUp>
       )}
       <FadeInUp delay={0.1}>

@@ -7,7 +7,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function TechStack() {
   return (
-    <section className="section bg-slate-50 dark:bg-slate-800/50">
+    <section className="section">
       <div className="container-custom">
         <SectionHeader
           badge="Tech Stack"
@@ -28,7 +28,7 @@ export default function TechStack() {
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
               >
                 <div className="text-center mb-6">
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">
+                  <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-white mb-1">
                     {category.label}
                   </h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400">

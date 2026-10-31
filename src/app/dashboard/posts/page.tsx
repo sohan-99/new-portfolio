@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiEdit, FiTrash2, FiPlus, FiEye, FiEyeOff } from 'react-icons/fi';
 import { Post } from '@/types/dashboard';
+import { TableSkeleton } from "@/components/ui/Skeleton";
 
 export default function PostsPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -88,9 +89,7 @@ export default function PostsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
+      <TableSkeleton />
     );
   }
 

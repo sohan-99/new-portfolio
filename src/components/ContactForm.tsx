@@ -280,7 +280,7 @@ export default function ContactForm() {
         disabled={status === "submitting"}
         whileHover={{ scale: status === "submitting" ? 1 : 1.02 }}
         whileTap={{ scale: status === "submitting" ? 1 : 0.98 }}
-        className={`btn-primary w-full ${
+        className={`btn-primary w-full !rounded-xl ${
           status === "submitting" ? "opacity-70 cursor-not-allowed" : ""
         }`}
       >

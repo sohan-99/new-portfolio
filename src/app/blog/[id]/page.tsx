@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FiArrowLeft, FiCalendar, FiEye, FiTag } from 'react-icons/fi';
 import { Post } from '@/types/dashboard';
+import { ArticleSkeleton } from "@/components/ui/Skeleton";
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -46,9 +47,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
+      <ArticleSkeleton />
     );
   }
 

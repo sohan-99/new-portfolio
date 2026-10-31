@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiFileText, FiEye, FiEdit, FiBriefcase, FiStar } from 'react-icons/fi';
 import Link from 'next/link';
+import { DashboardSkeleton } from "@/components/ui/Skeleton";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
@@ -57,9 +58,7 @@ export default function DashboardPage() {
 
   if (status === 'loading') {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
+      <DashboardSkeleton />
     );
   }
 

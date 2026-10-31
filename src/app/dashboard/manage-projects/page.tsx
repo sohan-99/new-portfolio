@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiEdit, FiTrash2, FiPlus, FiStar, FiCode, FiLayers } from 'react-icons/fi';
 import { DashboardProject } from '@/types/projects';
+import { TableSkeleton } from "@/components/ui/Skeleton";
 
 export default function ProjectsManagementPage() {
   const [projects, setProjects] = useState<DashboardProject[]>([]);
@@ -54,9 +55,7 @@ export default function ProjectsManagementPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
+      <TableSkeleton />
     );
   }
 

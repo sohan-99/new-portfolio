@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiUpload, FiX, FiCheck, FiTrash2, FiImage } from 'react-icons/fi';
+import { GallerySkeleton } from "@/components/ui/Skeleton";
 
 interface CloudinaryImage {
   public_id: string;
@@ -105,9 +106,7 @@ export default function ImageGallery({ onSelectImage, selectedImage }: ImageGall
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
+      <GallerySkeleton />
     );
   }
 
