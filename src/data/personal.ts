@@ -30,7 +30,7 @@ export const personalInfo: PersonalInfo = {
   phone: "+880 1722562608",
   location: "Bogura, Bangladesh",
   availability: "available",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "https://drive.google.com/file/d/1khpseFsmdCXk1m4tXRgJtW3uTV9fhAok/view?usp=sharing",
   shortBio:
     "Passionate Full Stack Developer specializing in the MERN stack and Next.js. I build performant, scalable, and user-friendly web applications.",
   bio: `I'm a passionate Full Stack Developer with expertise in building modern web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Next.js. With a strong foundation in both frontend and backend development, I create scalable, performant, and user-friendly solutions.

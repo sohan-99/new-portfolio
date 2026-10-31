@@ -52,7 +52,7 @@ export default function Footer() {
                 />
               </div>
               <span className="sm:block font-display font-bold text-xl text-slate-900 dark:text-white">
-                sohan<span className="text-primary-400">.dev</span>
+                sohanur<span className="text-primary-400">.dev</span>
               </span>
           </Link>
             <p className="text-slate-600 dark:text-slate-400 max-w-md my-6 mx-auto md:mx-0">

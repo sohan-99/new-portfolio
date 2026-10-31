@@ -94,7 +94,9 @@ export default function Hero() {
                 <FiArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <a
-                href="https://drive.google.com/uc?export=download&id=1khpseFsmdCXk1m4tXRgJtW3uTV9fhAok"
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary"
               >
                 <FiDownload className="w-4 h-4" />

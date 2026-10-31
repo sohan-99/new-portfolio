@@ -132,12 +132,12 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
           >
             <FiArrowLeft size={20} />
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
             Edit Project
           </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="card p-6 space-y-6">
           {/* Same form fields as new project */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -149,7 +149,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
               required
               value={formData.title}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
             />
           </div>
 
@@ -163,7 +163,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
               value={formData.description}
               onChange={handleChange}
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
             />
           </div>
 
@@ -176,7 +176,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
               value={formData.longDescription}
               onChange={handleChange}
               rows={5}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
             />
           </div>
 
@@ -201,7 +201,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
               >
                 <option value="frontend">Frontend</option>
                 <option value="fullstack">Full Stack</option>
@@ -217,7 +217,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
                 name="date"
                 value={formData.date}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
               />
             </div>
 
@@ -247,13 +247,13 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
                 value={techInput}
                 onChange={(e) => setTechInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTechStack())}
-                className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="flex-1 px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 placeholder="Add technology"
               />
               <button
                 type="button"
                 onClick={addTechStack}
-                className="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
+                className="px-4 py-2 bg-primary-400 hover:bg-primary-300 text-slate-950 font-semibold rounded-xl transition-colors"
               >
                 <FiPlus />
               </button>
@@ -287,7 +287,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
                 name="github"
                 value={formData.github}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
               />
             </div>
 
@@ -300,7 +300,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
                 name="liveUrl"
                 value={formData.liveUrl}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
               />
             </div>
           </div>
@@ -309,7 +309,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors disabled:opacity-50"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary-400 hover:bg-primary-300 text-slate-950 font-semibold rounded-xl transition-colors disabled:opacity-50"
             >
               <FiSave /> {saving ? 'Saving...' : 'Save Changes'}
             </button>

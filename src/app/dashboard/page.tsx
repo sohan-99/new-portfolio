@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiFileText, FiEye, FiEdit, FiBriefcase, FiStar } from 'react-icons/fi';
+import { FiFileText, FiEye, FiEdit, FiBriefcase, FiStar, FiPlus, FiArrowUpRight } from 'react-icons/fi';
 import Link from 'next/link';
 import { DashboardSkeleton } from "@/components/ui/Skeleton";
 
@@ -63,54 +63,34 @@ export default function DashboardPage() {
   }
 
   const statsCards = [
-    {
-      title: 'Total Posts',
-      value: stats.totalPosts,
-      icon: FiFileText,
-      color: 'bg-blue-500',
-    },
-    {
-      title: 'Published',
-      value: stats.publishedPosts,
-      icon: FiEye,
-      color: 'bg-green-500',
-    },
-    {
-      title: 'Drafts',
-      value: stats.draftPosts,
-      icon: FiEdit,
-      color: 'bg-yellow-500',
-    },
-    {
-      title: 'Total Views',
-      value: stats.totalViews,
-      icon: FiEye,
-      color: 'bg-cyan-500',
-    },
-    {
-      title: 'Total Projects',
-      value: projectStats.totalProjects,
-      icon: FiBriefcase,
-      color: 'bg-purple-500',
-    },
-    {
-      title: 'Featured Projects',
-      value: projectStats.featuredProjects,
-      icon: FiStar,
-      color: 'bg-orange-500',
-    },
+    { title: 'Total Posts', value: stats.totalPosts, icon: FiFileText },
+    { title: 'Published', value: stats.publishedPosts, icon: FiEye },
+    { title: 'Drafts', value: stats.draftPosts, icon: FiEdit },
+    { title: 'Total Views', value: stats.totalViews, icon: FiEye },
+    { title: 'Total Projects', value: projectStats.totalProjects, icon: FiBriefcase },
+    { title: 'Featured Projects', value: projectStats.featuredProjects, icon: FiStar },
+  ];
+
+  const quickActions = [
+    { href: '/dashboard/posts/new', label: 'Create new post', icon: FiEdit },
+    { href: '/dashboard/posts', label: 'Manage posts', icon: FiFileText },
+    { href: '/dashboard/manage-projects/new', label: 'Add new project', icon: FiBriefcase },
+    { href: '/dashboard/manage-projects', label: 'Manage projects', icon: FiStar },
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white break-words">
-          Welcome back, {session?.user?.name}!
-        </h1>
-        <Link
-          href="/dashboard/posts/new"
-          className="inline-flex items-center justify-center px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors w-full sm:w-auto"
-        >
+    <div className="space-y-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-end">
+        <div>
+          <p className="font-mono text-xs uppercase tracking-widest text-primary-500 dark:text-primary-400 mb-2">
+            Overview
+          </p>
+          <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white break-words">
+            Welcome back, {session?.user?.name}
+          </h1>
+        </div>
+        <Link href="/dashboard/posts/new" className="btn-primary w-full sm:w-auto !rounded-xl">
+          <FiPlus className="w-4 h-4" />
           New Post
         </Link>
       </div>
@@ -122,20 +102,20 @@ export default function DashboardPage() {
             key={stat.title}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="bg-white dark:bg-slate-800 rounded-lg shadow p-6"
+            transition={{ delay: index * 0.07 }}
+            className="card p-6"
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-start justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                <p className="font-mono text-xs uppercase tracking-widest text-slate-500">
                   {stat.title}
                 </p>
-                <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
+                <p className="mt-3 font-display text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
                   {stat.value}
                 </p>
               </div>
-              <div className={`${stat.color} p-3 rounded-lg`}>
-                <stat.icon className="h-6 w-6 text-white" />
+              <div className="w-10 h-10 rounded-xl bg-primary-400/10 border border-primary-400/20 flex items-center justify-center">
+                <stat.icon className="h-5 w-5 text-primary-500 dark:text-primary-400" />
               </div>
             </div>
           </motion.div>
@@ -143,47 +123,24 @@ export default function DashboardPage() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-          Quick Actions
+      <div>
+        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white mb-4">
+          Quick actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Link
-            href="/dashboard/posts/new"
-            className="p-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg hover:border-primary dark:hover:border-primary transition-colors text-center"
-          >
-            <FiEdit className="mx-auto h-8 w-8 text-gray-400 dark:text-gray-500 mb-2" />
-            <p className="text-sm font-medium text-gray-900 dark:text-white">
-              Create New Post
-            </p>
-          </Link>
-          <Link
-            href="/dashboard/posts"
-            className="p-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg hover:border-primary dark:hover:border-primary transition-colors text-center"
-          >
-            <FiFileText className="mx-auto h-8 w-8 text-gray-400 dark:text-gray-500 mb-2" />
-            <p className="text-sm font-medium text-gray-900 dark:text-white">
-              Manage Posts
-            </p>
-          </Link>
-          <Link
-            href="/dashboard/manage-projects/new"
-            className="p-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg hover:border-primary dark:hover:border-primary transition-colors text-center"
-          >
-            <FiBriefcase className="mx-auto h-8 w-8 text-gray-400 dark:text-gray-500 mb-2" />
-            <p className="text-sm font-medium text-gray-900 dark:text-white">
-              Add New Project
-            </p>
-          </Link>
-          <Link
-            href="/dashboard/manage-projects"
-            className="p-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg hover:border-primary dark:hover:border-primary transition-colors text-center"
-          >
-            <FiStar className="mx-auto h-8 w-8 text-gray-400 dark:text-gray-500 mb-2" />
-            <p className="text-sm font-medium text-gray-900 dark:text-white">
-              Manage Projects
-            </p>
-          </Link>
+          {quickActions.map((action) => (
+            <Link
+              key={action.href}
+              href={action.href}
+              className="card group flex items-center justify-between gap-3 p-4"
+            >
+              <span className="flex items-center gap-3 text-sm font-medium text-slate-900 dark:text-white">
+                <action.icon className="h-5 w-5 text-slate-400 group-hover:text-primary-400 transition-colors" />
+                {action.label}
+              </span>
+              <FiArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-primary-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </Link>
+          ))}
         </div>
       </div>
     </div>

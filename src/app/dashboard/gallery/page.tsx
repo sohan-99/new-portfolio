@@ -17,7 +17,7 @@ export default function GalleryPage() {
         />
       </motion.div>
 
-      <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
+      <div className="card p-6">
         <ImageGallery />
       </div>
     </div>

@@ -107,12 +107,12 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
           >
             <FiArrowLeft size={20} />
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
             Edit Post
           </h1>
         </div>
 
-        <form className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 space-y-6">
+        <form className="card p-6 space-y-6">
           <div>
             <label
               htmlFor="title"
@@ -127,7 +127,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
               required
               value={formData.title}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
             />
           </div>
 
@@ -145,7 +145,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
               value={formData.description}
               onChange={handleChange}
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+              className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
             />
           </div>
 
@@ -163,7 +163,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
               value={formData.content}
               onChange={handleChange}
               rows={12}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white font-mono text-sm"
+              className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white font-mono text-sm"
             />
           </div>
 
@@ -181,7 +181,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
               />
             </div>
 
@@ -198,7 +198,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
                 name="tags"
                 value={formData.tags}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
               />
             </div>
           </div>
@@ -213,7 +213,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
               type="button"
               onClick={(e) => handleSubmit(e, false)}
               disabled={saving}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-50"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-slate-200 dark:border-white/10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-50"
             >
               <FiSave /> Save as Draft
             </button>
@@ -221,7 +221,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
               type="button"
               onClick={(e) => handleSubmit(e, true)}
               disabled={saving}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors disabled:opacity-50"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary-400 hover:bg-primary-300 text-slate-950 font-semibold rounded-xl transition-colors disabled:opacity-50"
             >
               <FiEye /> Publish
             </button>

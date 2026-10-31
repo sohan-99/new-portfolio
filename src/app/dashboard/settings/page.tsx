@@ -14,11 +14,11 @@ export default function SettingsPage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Settings</h1>
+      <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Settings</h1>
 
-      <div className="bg-white dark:bg-slate-800 rounded-lg shadow">
+      <div className="card">
         {/* Tabs */}
-        <div className="border-b border-gray-200 dark:border-gray-700">
+        <div className="border-b border-slate-200 dark:border-white/10">
           <nav className="flex -mb-px">
             {tabs.map((tab) => (
               <button
@@ -27,7 +27,7 @@ export default function SettingsPage() {
                 className={`${
                   activeTab === tab.id
                     ? 'border-primary text-primary'
-                    : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
+                    : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
                 } flex items-center gap-2 px-6 py-4 border-b-2 font-medium text-sm transition-colors`}
               >
                 <tab.icon />
@@ -45,7 +45,7 @@ export default function SettingsPage() {
               animate={{ opacity: 1, y: 0 }}
               className="space-y-4"
             >
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
                 Profile Information
               </h2>
               <div>
@@ -55,7 +55,7 @@ export default function SettingsPage() {
                 <input
                   type="text"
                   defaultValue="Admin"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 />
               </div>
               <div>
@@ -65,10 +65,10 @@ export default function SettingsPage() {
                 <input
                   type="email"
                   defaultValue="admin@example.com"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 />
               </div>
-              <button className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-primary-400 hover:bg-primary-300 text-slate-950 font-semibold rounded-xl transition-colors">
                 <FiSave /> Save Changes
               </button>
             </motion.div>
@@ -80,7 +80,7 @@ export default function SettingsPage() {
               animate={{ opacity: 1, y: 0 }}
               className="space-y-4"
             >
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
                 Change Password
               </h2>
               <div>
@@ -89,7 +89,7 @@ export default function SettingsPage() {
                 </label>
                 <input
                   type="password"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 />
               </div>
               <div>
@@ -98,7 +98,7 @@ export default function SettingsPage() {
                 </label>
                 <input
                   type="password"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 />
               </div>
               <div>
@@ -107,7 +107,7 @@ export default function SettingsPage() {
                 </label>
                 <input
                   type="password"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 border border-slate-200 dark:border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 />
               </div>
               <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-md p-4">
@@ -115,7 +115,7 @@ export default function SettingsPage() {
                   Note: To change your password permanently, update the ADMIN_PASSWORD in your .env.local file
                 </p>
               </div>
-              <button className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-primary-400 hover:bg-primary-300 text-slate-950 font-semibold rounded-xl transition-colors">
                 <FiSave /> Update Password
               </button>
             </motion.div>

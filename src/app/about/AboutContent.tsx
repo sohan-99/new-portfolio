@@ -87,7 +87,8 @@ export default function AboutContent() {
                 <div className="flex flex-wrap gap-4">
                   <a
                     href={personalInfo.resumeUrl}
-                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn-primary"
                   >
                     <FiDownload className="w-4 h-4" />

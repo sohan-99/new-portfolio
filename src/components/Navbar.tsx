@@ -72,7 +72,7 @@ export default function Navbar() {
             />
           </div>
           <span className="font-display font-bold text-lg text-slate-900 dark:text-white">
-            sohan<span className="text-primary-400">.dev</span>
+            sohanur<span className="text-primary-400">.dev</span>
           </span>
         </Link>
 

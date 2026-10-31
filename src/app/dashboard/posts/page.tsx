@@ -96,10 +96,10 @@ export default function PostsPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Posts</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Posts</h1>
         <Link
           href="/dashboard/posts/new"
-          className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary-400 hover:bg-primary-300 text-slate-950 font-semibold rounded-xl transition-colors w-full sm:w-auto"
         >
           <FiPlus /> New Post
         </Link>
@@ -124,8 +124,8 @@ export default function PostsPage() {
 
       {/* Posts List */}
       {filteredPosts.length === 0 ? (
-        <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-12 text-center">
-          <p className="text-gray-500 dark:text-gray-400">No posts found</p>
+        <div className="card p-12 text-center">
+          <p className="text-slate-500 dark:text-slate-400">No posts found</p>
           <Link
             href="/dashboard/posts/new"
             className="inline-block mt-4 text-primary hover:underline"
@@ -141,12 +141,12 @@ export default function PostsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="bg-white dark:bg-slate-800 rounded-lg shadow p-6"
+              className="card p-6"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
                       {post.title}
                     </h3>
                     <span
@@ -167,7 +167,7 @@ export default function PostsPage() {
                       )}
                     </span>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-400 mb-2">
+                  <p className="text-slate-600 dark:text-slate-400 mb-2">
                     {post.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-2">
@@ -180,14 +180,14 @@ export default function PostsPage() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
                     {new Date(post.createdAt).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',
                     })}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                     {post.viewCount ?? 0} views
                   </p>
                 </div>
